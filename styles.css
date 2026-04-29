@@ -1,0 +1,103 @@
+:root {
+     --container-v: 150px;
+     --container-h: calc((100vw - 1100px) / 2);
+     --container: var(--container-v) var(--container-h);
+}
+
+.container {
+     padding: var(--container);
+}
+
+/* ============================================================
+   FONT
+============================================================ */
+
+@font-face {
+  font-family: 'Jetbrains';
+  src: url('assets/public/fonts/JetBrains.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('assets/public/fonts/Inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+     RESET
+============================================================ */
+
+*,
+*::before,
+*::after {
+     box-sizing: border-box;
+     padding: 0;
+     margin: 0;
+     line-height: 1;
+     font-family: 'Inter';
+}
+
+html,
+body {
+     height: 100%;
+}
+
+body {
+     background-color: white;
+     font-optical-sizing: auto;
+     font-kerning: normal;
+     font-synthesis: none;
+     font-variant-ligatures: common-ligatures;
+     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     text-rendering: optimizeLegibility;
+}
+
+p {
+     text-wrap: pretty;
+}
+
+
+/* ============================================================
+     ELEMENTS
+============================================================ */
+
+a {
+     text-decoration: none;
+}
+
+button {
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+}
+
+button:active,
+a:active {
+}
+
+
+/* ============================================================
+     TRANSITIONS
+============================================================ */
+
+a svg,
+button svg,
+input,
+input::placeholder,
+a,
+button,
+.tra {
+     transition: all .28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================================
+     FLEX
+============================================================ */
+

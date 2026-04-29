@@ -1,0 +1,173 @@
+/* ============================================================
+   ROOT VARIABLES
+   ============================================================ */
+
+:root {
+    /* Typography colours */
+    --t900: #141415;
+    --t500: #A8A8A8;
+    --t400: #B3B3B3;
+    --t300: #D4D4D4;
+
+    /* Spacing */
+    --g28: 28px;
+    --g40: 40px;
+
+    /* Border radius */
+    --br4: 4px;
+}
+
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.f-row {
+    display: flex;
+    align-items: center;
+}
+
+.f-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.j-s-b {
+    justify-content: space-between;
+}
+
+
+/* ============================================================
+   SPACING UTILITIES
+   ============================================================ */
+
+.m-b-28 {
+    margin-bottom: var(--g28);
+}
+
+.m-t-40 {
+    margin-top: var(--g40);
+}
+
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.tag,
+.jetbrains {
+    font-family: 'Jetbrains';
+    letter-spacing: -0.025em;
+}
+
+.tag {
+    font-size: 12px;
+    font-variation-settings: 'wght' 500;
+    color: var(--t500);
+}
+
+
+/* ============================================================
+   SECTIONS — ABOUT
+   ============================================================ */
+
+#about-section {
+    img {
+        border-radius: var(--br4);
+    }
+
+    .about-us-text-wrap p,
+    .about-us-text-wrap span {
+        font-size: 16px;
+        font-variation-settings: 'wght' 680;
+        line-height: 1.6;
+    }
+
+    .about-us-text-wrap .grey span {
+        font-variation-settings: 'wght' 590 !important;
+    }
+
+    .reveal-text-dark,
+     .reveal-text-grey {
+          color: var(--t300);
+          transition: color 0.22s ease;
+     }
+
+     .reveal-text-dark.revealed {
+          color: var(--t900);
+     }
+
+     .reveal-text-grey.revealed {
+          color: #8F8F8F;
+     }
+}
+
+/* unorganised */
+
+.j-s-b {
+     justify-content: space-between;
+}
+
+h2 {
+     font-size: 20px;
+     font-variation-settings: 'wght' 620;
+     color: var(--t950);
+}
+
+:root {
+     --t950: #070708;
+     line-height: 1.15;
+}
+
+
+#portfolio-section {
+     .portfolio-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+
+          :first-child {
+               grid-column: 1 / 5;
+          }
+
+          .portfolio-card {
+               display: grid;
+               grid-template-columns: 1fr 2fr;
+               
+               .img-wrap {
+                    height: 400px;
+                    overflow: hidden;
+                    border-radius: var(--br2);
+                    position: relative;
+
+                    img {
+                         width: 100%;
+                         height: 100%;
+                         position: absolute;
+                         object-fit: cover;
+                         object-position: center;
+                    }
+               }
+          }
+
+     }
+}
+
+.g52 {
+     gap: var(--g52);
+}
+
+:root {
+     --g52: 52px;
+     --g32: 32px;
+     --g14: 14px;
+
+     --br2: 2px;
+}
+
+.g32 {
+     gap: var(--g32);
+}
+
+.g14 {
+     gap: var(--g14);
+}
