@@ -1,0 +1,38 @@
+#loading-screen {
+     background-color: var(--fill-black);
+     position: fixed;
+     z-index: 1000;
+     
+
+     svg {
+          fill: white;
+          height: 27px;
+          position: absolute;
+          transform: translateY(50%);
+          bottom: 10%;
+     }
+}
+
+@media (max-width: 1360px) {
+     #loading-screen {
+          svg {
+               height: 26px;
+          }
+     }
+}
+
+@media (max-width: 1024px) {
+     #loading-screen {
+          svg {
+               height: 25px;
+          }
+     }
+}
+
+@media (max-width: 480px) {
+     #loading-screen {
+          svg {
+               height: 22px;
+          }
+     }
+}

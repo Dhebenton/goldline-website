@@ -1,12 +1,4 @@
-:root {
-     --container-v: 150px;
-     --container-h: calc((100vw - 1100px) / 2);
-     --container: var(--container-v) var(--container-h);
-}
 
-.container {
-     padding: var(--container);
-}
 
 /* ============================================================
    FONT
@@ -21,8 +13,8 @@
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('assets/public/fonts/Inter.woff2') format('woff2');
+  font-family: 'Switzer';
+  src: url('assets/public/fonts/Switzer.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -39,7 +31,7 @@
      padding: 0;
      margin: 0;
      line-height: 1;
-     font-family: 'Inter';
+     font-family: 'Switzer';
 }
 
 html,
@@ -59,11 +51,6 @@ body {
      text-rendering: optimizeLegibility;
 }
 
-p {
-     text-wrap: pretty;
-}
-
-
 /* ============================================================
      ELEMENTS
 ============================================================ */
@@ -77,27 +64,3 @@ button {
      border: none;
      cursor: pointer;
 }
-
-button:active,
-a:active {
-}
-
-
-/* ============================================================
-     TRANSITIONS
-============================================================ */
-
-a svg,
-button svg,
-input,
-input::placeholder,
-a,
-button,
-.tra {
-     transition: all .28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ============================================================
-     FLEX
-============================================================ */
-

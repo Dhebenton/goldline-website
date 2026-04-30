@@ -4,42 +4,116 @@
 
     <link rel="stylesheet" href="/styles.css">
 
-    <link rel="stylesheet" href="/unorganised.css">
+    <link rel="stylesheet" href="css/unorganised.css">
+    <link rel="stylesheet" href="css/loading-screen.css">
+    <link rel="stylesheet" href="css/about-us.css">
 
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
 <body>
+
+     <!-- LOADING -->
+      
+     <div id="loading-screen" class="f-row j-c fill">
+         <svg viewBox="0 0 493 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          <svg viewBox="0 0 493 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M39.4605 11.4845C39.3204 11.7227 39.248 11.9937 39.2511 12.2691C39.2537 12.5444 39.3318 12.8139 39.4765 13.0493C41.876 16.8987 45.1987 20.1049 49.1504 22.3843C53.1028 24.6638 57.5623 25.9463 62.1356 26.1186C62.4181 26.1263 62.6971 26.0578 62.9434 25.9202C63.1894 25.7827 63.3923 25.5814 63.5312 25.3381L69.7195 14.6418C70.329 13.5841 69.5588 12.253 68.3318 12.1302C64.4042 11.7237 60.6086 10.4979 57.1968 8.53367C53.7846 6.56952 50.8342 3.91188 48.5401 0.736674C47.8183 -0.261646 46.254 -0.253722 45.6365 0.811946L39.4605 11.4845ZM64.0002 53.8655C63.7181 53.8682 63.4406 53.7946 63.1977 53.6529C62.9545 53.5112 62.755 53.3066 62.6206 53.0613C60.467 49.0362 59.3409 44.5527 59.3409 40C59.3409 35.4472 60.467 30.9634 62.6206 26.9386C62.755 26.6932 62.9545 26.4888 63.1977 26.3471C63.4406 26.2054 63.7181 26.1319 64.0002 26.1344H76.3447C77.5797 26.1344 78.3617 27.4576 77.8565 28.5669C76.2248 32.1629 75.3812 36.0592 75.3812 40C75.3812 43.9409 76.2248 47.8373 77.8565 51.4331C78.3617 52.5421 77.5759 53.8655 76.3447 53.8655H64.0002ZM39.4605 68.5154C39.3204 68.2773 39.248 68.0065 39.2511 67.731C39.2537 67.4556 39.3318 67.1863 39.4765 66.9504C41.876 63.1013 45.1987 59.8952 49.1504 57.6156C53.1028 55.336 57.5623 54.0537 62.1356 53.8815C62.4181 53.8739 62.6971 53.9421 62.9434 54.0796C63.1894 54.2171 63.3923 54.4186 63.5312 54.6617L69.7195 65.3581C70.329 66.416 69.5588 67.747 68.3318 67.8697C64.4042 68.2762 60.6086 69.5021 57.1968 71.4663C53.7846 73.4305 50.8342 76.088 48.5401 79.2632C47.8183 80.2617 46.254 80.2537 45.6365 79.1882L39.4605 68.5154ZM38.554 68.5154C38.6937 68.2773 38.7661 68.0065 38.7634 67.731C38.7604 67.4556 38.6827 67.1863 38.538 66.9504C36.1385 63.1013 32.8158 59.8952 28.8636 57.6156C24.9116 55.336 20.4519 54.0537 15.8788 53.8815C15.5963 53.8739 15.317 53.9421 15.071 54.0796C14.8251 54.2171 14.6218 54.4186 14.4832 54.6617L8.29498 65.3581C7.68541 66.416 8.45545 67.747 9.68263 67.8697C13.6102 68.2762 17.4056 69.5021 20.8175 71.4663C24.2295 73.4305 27.1803 76.088 29.4744 79.2632C30.1962 80.2617 31.7603 80.2537 32.3777 79.1882L38.554 68.5154ZM14.0139 53.8655C14.2962 53.8682 14.5738 53.7946 14.8169 53.6529C15.06 53.5112 15.2594 53.3066 15.3935 53.0613C17.5474 49.0362 18.6732 44.5527 18.6732 40C18.6732 35.4472 17.5474 30.9634 15.3935 26.9386C15.2594 26.6932 15.06 26.4888 14.8169 26.3471C14.5738 26.2054 14.2962 26.1319 14.0139 26.1344H1.66571C0.434498 26.1344 -0.347546 27.4576 0.153763 28.5669C1.78549 32.1629 2.62903 36.0592 2.62903 40C2.62903 43.9409 1.78549 47.8373 0.153763 51.4331C-0.347546 52.5421 0.434498 53.8655 1.66571 53.8655H14.0139ZM38.554 11.4845C38.6937 11.7227 38.7661 11.9937 38.7634 12.2691C38.7604 12.5444 38.6827 12.8139 38.538 13.0493C36.1385 16.8987 32.8158 20.1049 28.8636 22.3843C24.9116 24.6638 20.4519 25.9463 15.8788 26.1186C15.5963 26.1263 15.317 26.0578 15.071 25.9202C14.8251 25.7827 14.6218 25.5814 14.4832 25.3381L8.29498 14.6418C7.68541 13.5841 8.45545 12.253 9.68263 12.1302C13.6102 11.7237 17.4056 10.4979 20.8175 8.53367C24.2295 6.56952 27.1803 3.91188 29.4744 0.736674C30.1962 -0.261646 31.7603 -0.253722 32.3777 0.811946L38.554 11.4845Z" fill="white"/>
+               <path d="M147.81 65.9843L147.444 60.2603C144.078 64.6964 138.663 66.9145 131.198 66.9145C125.979 66.9145 121.466 65.8172 117.66 63.6231C113.904 61.4291 111.001 58.3044 108.952 54.2501C106.952 50.1957 105.952 45.4019 105.952 39.8685C105.952 34.3831 107.074 29.6608 109.318 25.7017C111.611 21.7425 114.782 18.6898 118.831 16.5433C122.929 14.3491 127.662 13.252 133.028 13.252C136.979 13.252 140.59 13.8959 143.858 15.1838C147.127 16.4717 149.883 18.3797 152.127 20.9078C154.421 23.4359 155.982 26.5841 156.811 30.3524H144.517C143.98 28.5398 142.761 26.918 140.858 25.487C138.955 24.056 136.297 23.3405 132.881 23.3405C130.345 23.3405 128.028 23.9606 125.929 25.2008C123.88 26.441 122.246 28.2775 121.026 30.7102C119.807 33.1429 119.197 36.1956 119.197 39.8685C119.197 45.3539 120.466 49.5518 123.002 52.4613C125.588 55.3709 128.954 56.8259 133.101 56.8259C135.053 56.8259 136.906 56.5637 138.663 56.0388C140.468 55.4664 141.956 54.5603 143.126 53.32C144.297 52.0321 144.883 50.2909 144.883 48.0968V47.0951H132.076V37.0781H157.396V65.9843H147.81Z" fill="white"/>
+               <path d="M192.341 66.9145C186.926 66.9145 182.145 65.8172 177.998 63.6231C173.851 61.3811 170.607 58.2569 168.265 54.2501C165.972 50.1957 164.826 45.4735 164.826 40.0832C164.826 34.6931 165.972 29.9947 168.265 25.9879C170.607 21.9334 173.851 18.809 177.998 16.6148C182.145 14.3729 186.926 13.252 192.341 13.252C197.756 13.252 202.537 14.3729 206.684 16.6148C210.831 18.809 214.051 21.9334 216.343 25.9879C218.685 29.9947 219.856 34.6931 219.856 40.0832C219.856 45.4735 218.685 50.1957 216.343 54.2501C214.051 58.2569 210.831 61.3811 206.684 63.6231C202.537 65.8172 197.756 66.9145 192.341 66.9145ZM192.341 56.8259C194.927 56.8259 197.293 56.2059 199.439 54.9656C201.635 53.6777 203.367 51.7934 204.635 49.3132C205.952 46.8329 206.611 43.7563 206.611 40.0832C206.611 36.4103 205.952 33.3336 204.635 30.8533C203.367 28.3729 201.635 26.5126 199.439 25.2724C197.293 23.9845 194.927 23.3405 192.341 23.3405C189.756 23.3405 187.365 23.9845 185.169 25.2724C183.023 26.5126 181.291 28.3729 179.974 30.8533C178.706 33.3336 178.071 36.4103 178.071 40.0832C178.071 43.7563 178.706 46.8329 179.974 49.3132C181.291 51.7934 183.023 53.6777 185.169 54.9656C187.365 56.2059 189.756 56.8259 192.341 56.8259Z" fill="white"/>
+               <path d="M228.262 65.9841V14.1104H240.776V55.18H266.242V65.9841H228.262Z" fill="white"/>
+               <path d="M272.845 65.9841V14.1104H290.335C294.677 14.1104 298.726 14.5397 302.483 15.3983C306.239 16.2569 309.532 17.6879 312.362 19.6913C315.191 21.647 317.387 24.2943 318.948 27.6333C320.558 30.9246 321.363 35.0506 321.363 40.0115C321.363 44.9724 320.558 49.1223 318.948 52.4612C317.387 55.8 315.191 58.4713 312.362 60.4747C309.532 62.4306 306.239 63.8375 302.483 64.6961C298.726 65.5547 294.677 65.9841 290.335 65.9841H272.845ZM285.359 55.6809H290.554C292.848 55.6809 295.043 55.5138 297.141 55.18C299.287 54.7983 301.165 54.0828 302.775 53.0335C304.434 51.9363 305.727 50.3621 306.654 48.3111C307.63 46.2122 308.117 43.4459 308.117 40.0115C308.117 36.5771 307.63 33.8342 306.654 31.7831C305.727 29.732 304.434 28.1818 302.775 27.1325C301.165 26.0353 299.287 25.3198 297.141 24.986C295.043 24.6043 292.848 24.4136 290.554 24.4136H285.359V55.6809Z" fill="white"/>
+               <path d="M329.935 65.9841V14.1104H342.448V55.18H367.914V65.9841H329.935Z" fill="white"/>
+               <path d="M374.518 65.9841V14.1104H387.031V65.9841H374.518Z" fill="white"/>
+               <path d="M395.041 65.9841V14.1104H410.262L431.557 49.8853V14.1104H443.634V65.9841H428.411L407.115 30.2091V65.9841H395.041Z" fill="white"/>
+               <path d="M451.654 65.9841V14.1104H492.339V24.9144H464.167V33.9296H490.803V44.7337H464.167V55.18H492.339V65.9841H451.654Z" fill="white"/>
+          </svg>
+     </div>
+
+
+     
+     <!-- NAVIGATION -->
+
+     <section class="container placeholder">NAVIGATION</section>
+     
+
+     
+     <!-- HERO -->
+
      <section class="container"></section>
+     <section class="container placeholder">HERO</section>
      <section class="container"></section>
-     <section id="about-section" class="f-col container">
-          <span class="tag m-b-28">[001 - ABOUT GOLDLINE]</span>
-          <div class="f-row about-us-text-wrap j-s-b">
-               <p>At Goldline, everything is built to work together from the start so<br>nothing feels disconnected or forced. <span class="grey">The work moves with clarity,<br>holding its shape as it develops over time, in a natural way still</span></p>
-               <p>There's a steady rhythm to how the work is shaped and refined with<br>small adjustments made as things unfold. <span class="grey">Over time it settles into<br>something consistent, stable, and considered overall, calmly too</span></p>
-          </div>
-          <img src="/assets/about-placeholder.avif" class="m-t-40" />
-     </section>
+     
 
+     
+     <!-- ABOUT -->
 
-     <!-- PORTFOLIO SECTION -->
-     <section id="portfolio-section" class="container f-col g52">
-          <div class="f-row j-s-b">
-               <h2>Featured Projects</h2>
-               <span class="tag">[002 - PROJECTS]</span>
-          </div>
-          <div class="portfolio-grid g32">
-               <a href="" class="portfolio-card g14">
-                    <div class="img-wrap"><img src="/assets/portfolio.png" /></div>
-                    <h3>Northvale Health</h3>
-                    <div class="f-row g6">
-                         <span>[UX]</span>
-                         <span>[WEBSITE]</span>
-                         <span>[OPTIMISATION]</span>
-                    </div>
-               </a>
+     <section id="about-section" class="container f-row a-f-s g124">
+          <span class="tag">[001 - ABOUT GOLDLINE]</span>
+          <div class="f-col g40">
+               <div class="f-row about-us-text-wrap j-s-b">
+                    <p class="no-tablet">Lorem ipsum dolor sit amet consectetur. Netus augue ipsum nisl <br>enim dolor scelerisque. <span class="grey">Sed interdum fames suspen disse nibh ut <br>sagittis elementum auctor. Fusce bibendum lectus dictumst</span></p>
+                    <p class="no-tablet">Lorem ipsum dolor sit amet consetur. Consectetur gravida <br>sodales mauris ut nunc enim nunc. <span class="grey">In egestas a pellentesque <br>tortor in et. Ullamcorper pretium tortor sed mattis in sapien</span></p>
+                    <p class="below-tablet">Lorem ipsum dolor sit amet consectetur. Netus augue ipsum nisl enim dolor scelerisqu. <span class="grey">Sed interdum fames suspen disse nibh ut sagittis elementum auctor. Fusce</span> </p>
+                    <p class="below-tablet">Lorem ipsum dolor sit amet consetur. Consectetur gravida sodales mauris ut nunc enim nunc. <spen class="grey">In egestas a pellentesque tortor in et. Ullamcorper pretium tortor</spen> </p>
+               </div>
+               <img src="/assets/about-placeholder.avif">
           </div>
      </section>
+     
 
+     
+     <!-- PORTFOLIO -->
 
-     <script src="/text.js" defer></script>
+     <section class="container placeholder">PORTFOLIO</section>
+     
+
+     
+     <!-- SERVICES -->
+
+     <section class="container placeholder">SERVICES</section>
+     
+
+     
+     <!-- WHY US -->
+
+     <section class="container placeholder">WHY US</section>
+     
+
+     
+     <!-- TESTIMONIAL -->
+
+     <section class="container placeholder">TESTIMONIAL</section>
+     
+
+     
+     <!-- FAQ -->
+
+     <section class="container placeholder">FAQ</section>
+       
+
+     
+     <!-- PRICING -->
+
+     <section class="container placeholder">PRICING</section>
+     
+
+     
+     <!-- BLOG -->
+
+     <section class="container placeholder">BLOG</section>
+     
+
+     
+     <!-- CTA -->
+
+     <section class="container placeholder">CTA</section>
+     
+
+     
+     <!-- FOOTER -->
+
+     <section class="container placeholder">FOOTER</section>
+     <script src="/main.js"></script>
+     <script src="/text.js"></script>
 </body>
