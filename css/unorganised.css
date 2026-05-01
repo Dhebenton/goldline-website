@@ -1,178 +1,109 @@
-/* ================================
-   ROOT VARIABLES
-================================ */
 :root {
-     --container-v: 145px;
-     --container-h: calc((100vw - 1220px) / 2);
+     --container-v: 150px;
+     --container-h: calc((100% - 1230px) / 2);
      --container: var(--container-v) var(--container-h);
-
-     --g124: 124px;
-     --g40: 40px;
-     --g32: 32px;
-     --g20: 20px;
-     --g16: 16px;
-     --br2: 2px;
-
-     --fill-black: #080808;
 }
 
-
-/* ================================
-   BASE
-================================ */
-body {
-     max-width: 100%;
-     overflow-x: hidden;
-}
-
-section {
-     max-width: 100svw;
-}
-
-
-/* ================================
-   CONTAINER
-================================ */
 .container {
      padding: var(--container);
 }
 
-
-/* ================================
-   FLEX UTILITIES
-================================ */
-.f-row {
-     display: flex;
-     align-items: center;
-}
-
-.f-col {
-     display: flex;
-     flex-direction: column;
-}
-
-.j-c {
-     justify-content: center;
-}
-
-.j-s-b {
-     justify-content: space-between;
-}
-
-.a-f-s {
-     align-items: flex-start;
-}
-
-
-/* ================================
-   GAP UTILITIES
-================================ */
-.g124 {
-     gap: var(--g124);
-}
-
-.g40 {
-     gap: var(--g40);
-}
-
-
-
-/* ================================
-   FILL UTILITY
-================================ */
-.fill {
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-}
-
-
-/* ================================
-   TYPOGRAPHY
-================================ */
-.tag {
-     font-size: 12px;
-     font-variation-settings: 'wght' 500;
-     line-height: 1.1;
-     white-space: nowrap;
-     color: #98989A;
-     letter-spacing: -0.01em;
-     font-family: 'JetBrains';
-}
-
 .placeholder {
-     font-size: 24px;
+     font-size: 22px;
      font-variation-settings: 'wght' 650;
 }
 
-.below-tablet {
+.tag {
+     font-size: 12.5px;
+     font-variation-settings: 'wght' 520;
+     font-family: 'JetBrains';
+     letter-spacing: -0.01em;
+     color: #999999;
+     white-space: nowrap;
+}
+
+.laptop {
      display: none;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
-@media (max-width: 1360px) {
+.tablet {
+     display: none;
+}
+
+@media (max-width: 1440px) {
      :root {
           --container-v: 140px;
-          --container-h: 6%;
-
-          --gmultiplies: .93;
-          --g124: calc(round(124px * var(--gmultiplies), 1px));
-          --g40: calc(round(40px * var(--gmultiplies), 1px));
-          --g32: calc(round(32px * var(--gmultiplies), 1px));
-          --g20: calc(round(20px * var(--gmultiplies), 1px));
-          --g16: calc(round(16px * var(--gmultiplies), 1px));
+          --container-h: 8.5%;
      }
 
-     .placeholder {
-          font-size: 22px;
+     .tag {
+          font-size: 11.5px !important;
+     }
+
+     .laptop {
+          display: block;
+     }
+
+     .no-laptop {
+          display: none !important;
      }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1290px) {
      :root {
-          --container-v: 125px;
-          --container-h: 8%;
+          --container-h: 7.5%;
+     }
+}
+
+@media (max-width: 1240px) {
+     :root {
+          --container-h: 8.5%;
+     }
+}
+
+@media (max-width: 1045px) {
+     :root {
+          --container-v: 130px;
      }
 
-     .placeholder {
-          font-size: 20px;
+     .tag {
+          font-size: 12px !important;
      }
 
-     .below-tablet {
-          display: block;
+     .tablet {
+          display: block !important;
      }
 
      .no-tablet {
           display: none !important;
      }
+}
+
+@media (max-width: 769px) {
+     :root {
+          --container-v: 125px;
+          --container-h: 9%;
+     }
 
      .tag {
-          font-size: 11px;;
+          font-size: 11.5px !important;
      }
 }
 
-@media (max-width: 758px) {
+@media (max-width: 490px) {
      :root {
-          --container-v: 120px;
+          --container-v: 100px;
           --container-h: 8%;
-          --gmultiplies: .88;
      }
 
-     .placeholder {
-          font-size: 18px;
+     .tag {
+          font-size: 11px !important;
      }
 }
 
-@media (max-width: 480px) {
-     :root {
-          --container-v: 120px;
-          --container-h: 8.5%;
-     }
-
-     .placeholder {
-          font-size: 16px;
-     }
+#blog-section,
+body {
+     overflow-x: hidden !important;
+     max-width: 100vw !important;
 }
+

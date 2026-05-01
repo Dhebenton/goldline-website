@@ -57,9 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const section = document.querySelector('#about-section');
   if (!section) return;
 
-  // Query chars in DOM order using a single querySelectorAll —
-  // this guarantees index order matches visual order regardless
-  // of nesting depth (.grey spans are children of p, not siblings)
+  const img = section.querySelector('.about-us-text-wrap img');
+
   const allChars = Array.from(
     section.querySelectorAll('.about-us-text-wrap p .char')
   ).filter(el => el.offsetParent !== null);
@@ -67,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const total = allChars.length;
   if (!total) return;
 
-  // Pre-build a boolean array to track state — avoids classList.contains reads
-  const revealed = new Uint8Array(total); // all 0 (hidden) initially
+  const revealed = new Uint8Array(total);
+  let imgRevealed = false;
 
   let lastCount = -1;
   let rafId = null;
@@ -90,27 +89,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const progress = Math.min(1, Math.max(0, (start - rectTop) / (start - end)));
     const count    = Math.round(progress * total);
 
-    if (count === lastCount) return;
-
-    if (count > lastCount) {
-      // Scrolling down — reveal
-      for (let i = Math.max(0, lastCount); i < count; i++) {
-        if (!revealed[i]) {
-          allChars[i].classList.add('revealed');
-          revealed[i] = 1;
+    if (count !== lastCount) {
+      if (count > lastCount) {
+        for (let i = Math.max(0, lastCount); i < count; i++) {
+          if (!revealed[i]) {
+            allChars[i].classList.add('revealed');
+            revealed[i] = 1;
+          }
+        }
+      } else {
+        for (let i = lastCount - 1; i >= count; i--) {
+          if (revealed[i]) {
+            allChars[i].classList.remove('revealed');
+            revealed[i] = 0;
+          }
         }
       }
-    } else {
-      // Scrolling up — hide, iterate backwards so visual order is correct
-      for (let i = lastCount - 1; i >= count; i--) {
-        if (revealed[i]) {
-          allChars[i].classList.remove('revealed');
-          revealed[i] = 0;
-        }
-      }
+      lastCount = count;
     }
 
-    lastCount = count;
+    // Reveal img only after all chars are revealed, hide if scrolling back
+    if (img) {
+      if (count === total && !imgRevealed) {
+        img.classList.add('revealed');
+        imgRevealed = true;
+      } else if (count < total && imgRevealed) {
+        img.classList.remove('revealed');
+        imgRevealed = false;
+      }
+    }
   }
 
   function onScroll() {
