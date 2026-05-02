@@ -1,21 +1,21 @@
-// ── variables ──────────────────────────────────────────────
-const LOGO_ENTER_DURATION  = 1500;
+const LOGO_ENTER_DURATION  = 1450;
 
-const PATH_ENTER_Y         = 6;
+const PATH_ENTER_Y         = 8;
 const PATH_ENTER_BLUR      = 4;
-const PATH_ENTER_DURATION  = 640;
-const PATH_STAGGER         = 120;
+const PATH_ENTER_DURATION  = 600;
+const PATH_STAGGER         = 110;
 
-const SCREEN_EXIT_AT       = 0.74;
-const SCREEN_EXIT_DURATION = 700;
-// ───────────────────────────────────────────────────────────
+const SCREEN_EXIT_AT       = 0.55;
+const SCREEN_EXIT_DURATION = 660;
 
 const loadingScreen = document.getElementById('loading-screen');
-const svgs          = loadingScreen.querySelectorAll('svg');
-const paths         = Array.from(loadingScreen.querySelectorAll('path'));
+const svgs          = [...loadingScreen.querySelectorAll('svg')];
+const paths         = [...loadingScreen.querySelectorAll('path')];
 
-const ease   = t => 1 - Math.pow(1 - t, 3);
-const easeIn = t => t * t * t;
+const ease   = t => 1 - (1 - t) ** 3;
+const easeIn = t => t ** 3;
+
+document.body.style.overflow = 'hidden';
 
 function animate({ duration, onUpdate, onComplete }) {
     const start = performance.now();
@@ -23,10 +23,9 @@ function animate({ duration, onUpdate, onComplete }) {
         const raw = Math.min((now - start) / duration, 1);
         onUpdate(raw);
         raw < 1 ? requestAnimationFrame(frame) : onComplete?.();
-    })(performance.now());
+    })(start);
 }
 
-// initial states
 svgs.forEach(s => {
     s.style.opacity = '0';
     s.style.bottom  = '0%';
@@ -38,21 +37,19 @@ paths.forEach(p => {
     p.style.filter    = `blur(${PATH_ENTER_BLUR}px)`;
 });
 
-// phase 3 — screen exits
-function startScreenExit() {
-    animate({
-        duration: SCREEN_EXIT_DURATION,
-        onUpdate(raw) {
-            const t = easeIn(raw);
-            loadingScreen.style.transform = `translateY(${-100 * t}%)`;
-        },
-        onComplete() {
-            loadingScreen.style.display = 'none';
+animate({
+    duration: LOGO_ENTER_DURATION,
+    onUpdate(raw) {
+        const t       = ease(raw);
+        const opacity = String(t);
+        const bottom  = `${50 * t}%`;
+        for (const s of svgs) {
+            s.style.opacity = opacity;
+            s.style.bottom  = bottom;
         }
-    });
-}
+    }
+});
 
-// phase 2 — paths enter one by one
 const totalPathsDuration = PATH_ENTER_DURATION + (paths.length - 1) * PATH_STAGGER;
 
 paths.forEach((p, i) => {
@@ -60,25 +57,25 @@ paths.forEach((p, i) => {
         animate({
             duration: PATH_ENTER_DURATION,
             onUpdate(raw) {
-                const t = ease(raw);
-                p.style.opacity   = t;
-                p.style.transform = `translateY(${PATH_ENTER_Y * (1 - t)}px)`;
-                p.style.filter    = `blur(${PATH_ENTER_BLUR * (1 - t)}px)`;
+                const t   = ease(raw);
+                const inv = 1 - t;
+                p.style.opacity   = String(t);
+                p.style.transform = `translateY(${PATH_ENTER_Y * inv}px)`;
+                p.style.filter    = `blur(${PATH_ENTER_BLUR * inv}px)`;
             }
         });
     }, i * PATH_STAGGER);
 });
 
-setTimeout(() => startScreenExit(), totalPathsDuration * SCREEN_EXIT_AT);
-
-// phase 1 — svg rises to bottom 50%
-animate({
-    duration: LOGO_ENTER_DURATION,
-    onUpdate(raw) {
-        const t = ease(raw);
-        svgs.forEach(s => {
-            s.style.opacity = t;
-            s.style.bottom  = `${50 * t}%`;
-        });
-    }
-});
+setTimeout(() => {
+    animate({
+        duration: SCREEN_EXIT_DURATION,
+        onUpdate(raw) {
+            loadingScreen.style.transform = `translateY(${-100 * easeIn(raw)}%)`;
+        },
+        onComplete() {
+            loadingScreen.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+}, totalPathsDuration * SCREEN_EXIT_AT);

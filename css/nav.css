@@ -1,0 +1,42 @@
+/* NAVIGATION */
+
+nav {
+     position: fixed;
+     left: 0;
+     width: 100%;
+     top: 0;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     align-items: center;
+     padding: var(--g16);
+
+     .logo {
+          color: #212121;
+          justify-self: start;
+
+          svg {
+               height: 16px;
+          }
+     }
+
+     ul {
+          a {
+               font-size: 13.5px;
+               font-variation-settings: 'wght' 510;
+               color: #8C8C8C;
+               letter-spacing: 0.01em;
+               padding-top: 2px;
+          }
+
+          a.active,
+          a:hover {
+               font-variation-settings: 'wght' 530;
+               color: #1A1A1A;
+          }
+     }
+
+     .pulse {
+          justify-self: end;
+     }
+}
+
