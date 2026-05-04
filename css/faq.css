@@ -1,0 +1,108 @@
+#faq-section {
+
+     h2 {
+          white-space: nowrap;
+     }
+     
+     .arrow-button {
+          margin-top: calc(var(--g32) - var(--g12));
+     }
+
+     .faq-group {
+          color: #BFBFBF;
+          font-size: 13px;
+          font-variation-settings: 'wght' 600;
+          margin-bottom: var(--g16);
+     }
+
+     .faq-group.second {
+          margin-top: var(--g60);
+     }
+
+     .faq {
+          display: grid;
+          grid-template-columns: min-content 1fr;
+          column-gap: var(--g12);
+          align-items: center;
+          padding: 15px 0;
+          cursor: pointer;
+          margin-left: var(--g12);
+          border-bottom: 1px solid #E6E6E6;
+
+          svg {
+               height: 10px;
+               fill: #A6A6A6;
+               transition: inherit;
+          }
+
+          h3 {
+               transition: inherit;
+               color: #383838;
+               font-size: 14.5px;
+               font-variation-settings: 'wght' 600;
+          }
+
+          .question-wrap {
+               height: 0;
+               grid-column: 2 / 3;
+               overflow: hidden;
+
+               p {
+                    color: #949494;
+                    font-variation-settings: 'wght' 550;
+                    line-height: 1.6;
+                    font-size: 13px;
+                    padding-top: var(--g6);
+               }
+          }
+     }
+
+     .faq.open {
+
+          svg {
+               fill: #666;
+               transform: rotate(135deg);
+          }
+
+          h3 {
+               color: #0D0D0D;
+          }
+
+          .question-wrap {
+               max-height: 200px; 
+          }
+     }
+}
+
+/*  */
+
+h2 {
+     font-size: 22px;
+     font-variation-settings: 'wght' 700;
+     line-height: 1.3;
+}
+
+.arrow-button {
+     color: #A6A6A6;
+     font-size: 12px;
+     font-variation-settings: 'wght' 700;
+
+     svg {
+          height: 7px;
+     }
+}
+
+.g12 {
+     gap: var(--g12);
+}
+
+:root {
+     --g32: 32px;
+     --g16: 16px;
+     --g60: 60px;
+     --g140: 140px;
+}
+
+.g140 {
+     gap: var(--g140);
+}

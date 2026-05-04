@@ -1,0 +1,77 @@
+/* SERVICES */
+#services-section {
+     position: static;
+     padding-top: var(--g80);
+     padding-bottom: var(--g80);
+     background-color: transparent;
+     overflow: hidden !important;
+
+     > * {
+          z-index: 2;
+          position: relative;
+     }
+
+     img {
+          position: fixed;
+          z-index: 1;
+     }
+
+     .tag {
+          color: #D5C3C0;
+          margin-top: 3px;
+     }
+
+     .page-body {
+          font-size: 15px;
+          line-height: 1.4;
+          font-variation-settings: 'wght' 720;
+          letter-spacing: -0.005em;
+          color: white;
+     }
+
+     h3 {
+          font-size: 15px;
+          font-variation-settings: 'wght' 900;
+          color: #E9E3E2;
+     }
+
+     .block {
+          padding-top: var(--g22);
+          border-top: none;
+          background-image: repeating-linear-gradient(
+               to right,
+               hsla(0, 0%, 100%, 0.6) 0px,
+               hsla(0, 0%, 100%, 0.6) 6px,
+               transparent 6px,
+               transparent 9px
+          );
+          background-position: top;
+          background-size: 100% 1px;
+          background-repeat: no-repeat;
+
+          h4 {
+               font-size: 13px;
+               font-variation-settings: 'wght' 800;
+               color: #FFFFFF;
+               margin-bottom: var(--g14);
+          }
+
+          .f-row.j-s-b {
+               width: 468px;
+
+               > :last-child {
+                    width: 156px;
+               }
+          }
+
+          ul {
+               gap: var(--g12);
+          }
+
+          h5, li {
+               font-size: 12.5px;
+               color: #E9D8D8;
+               font-variation-settings: 'wght' 500;
+          }
+     }
+}
