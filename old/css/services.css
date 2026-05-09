@@ -1,0 +1,128 @@
+#services-section {
+     background-color: transparent;
+     padding: var(--g100);position: relative;
+     overflow: hidden;
+     z-index: 1;
+
+     * {
+          position: relative;
+     }
+
+     .services-background {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          overflow: hidden;
+     }
+
+     .services-background img {
+          width: 100%;
+          height: 100%;
+     }
+
+     .tag {
+          color: #D8C8C5;
+     }
+
+     .heading {
+          color: #FFFFFF;
+          max-width: 448px;
+          font-size: 15px;
+          letter-spacing: -0.005em;
+          line-height: 1.42;
+          font-variation-settings: 'wght' 680;
+     }
+
+     .service-block {
+          background-image: repeating-linear-gradient(
+               90deg,
+               rgba(255, 255, 255, 0.9) 0px,
+               rgba(255, 255, 255, 0.9) 6px,
+               transparent 6px,
+               transparent 9px
+          );
+          background-size: 100% 1px;
+          background-repeat: no-repeat;
+          background-position: top;
+
+          padding-top: var(--g22);
+
+          .group {
+               color: #DFD4D1;
+               font-variation-settings: 'wght' 700;
+               letter-spacing: -0.01em;
+               font-size: 14px;
+          }
+
+          .services-wrap {
+               width: 448px;
+
+               .jetbrains {
+                    padding-bottom: var(--g4);
+                    color: #E4D2D2;
+                    font-size: 12.5px;
+                    font-variation-settings: 'wght' 700;
+               }
+
+               li {
+                    font-size: 12.5px;
+                    color: white;
+                    letter-spacing: -0.01em;
+                    font-variation-settings: 'wght' 600;
+               }
+          }
+
+          .services-wrap > :last-child {
+               width: 148px;
+          }
+     }
+}
+
+/*  */
+
+section {
+     background-color: white;
+     position: relative;
+     z-index: 3;  
+}
+
+
+
+@media (max-width: 1350px) {
+     #services-section {
+          .tag {
+               color: #D8C8C5;
+          }
+
+          .heading {
+               max-width: 420px;
+               font-size: 14px;
+               letter-spacing: -0.01em;
+          }
+
+          .service-block {
+               .group {
+                    font-size: 13px;
+               }
+
+               .services-wrap {
+                    width: 420px;
+
+                    .jetbrains {
+                         font-size: 12px;
+                    }
+
+                    li {
+                         font-size: 12px;
+                    }
+               }
+
+               .services-wrap > :last-child {
+                    width: 142px;
+               }
+          }
+     }
+
+}

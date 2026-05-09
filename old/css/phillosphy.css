@@ -1,0 +1,83 @@
+.phillosophy-container {
+     height: 200vh;
+     position: relative;
+     padding-bottom: var(--g140);
+     background-color: white;
+
+     .phillosophy-wrap {
+          height: auto;
+          position: sticky;
+          top: 30%;
+
+          h2 {
+               font-family: 'Suisse';
+               text-align: center;
+               font-size: 24px;
+               line-height: 1.34;
+               max-width: 560px;
+          }
+     }
+     
+     .img {
+          height: 73px;
+          aspect-ratio: 116 / 67;
+          position: absolute;
+     }
+
+     .img.one {
+          left: 12%;
+          top: -9%;
+     }
+
+     .two {
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+     }
+
+     .three {
+          left: 12%;
+          bottom: -9%;
+     }
+
+     .four {
+          right: 12%;
+          height: auto;
+          top: -8%;
+          width: 80px;
+          aspect-ratio: 77 / 90 !important;
+     }
+
+     .five {
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+     }
+
+     .six {
+          bottom: -12%;
+          right: 12%;
+     }
+
+}
+
+@media (max-width: 1350px) {
+     .phillosophy-container {
+
+          .phillosophy-wrap {
+               h2 {
+                    font-size: 21px;
+                    max-width: 500px;
+               }
+          }
+          
+          .img {
+               height: 63px;
+          }
+
+          .four {
+               width: 73px;
+          }
+
+     }
+}

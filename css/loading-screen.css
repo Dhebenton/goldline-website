@@ -1,0 +1,42 @@
+/* LOADING SCREEN */
+
+#loading-screen {
+     position: fixed;
+     background-color: var(--fill-black);
+     z-index: 1000;
+     
+     svg {
+          fill: white;
+          height: 25px;
+          position: absolute;
+          transform: translateY(50%);
+          bottom: 10%;
+     }
+}
+
+@media (max-width: 1350px) {
+     #loading-screen svg{
+          height: 24px;
+     }
+}
+
+@media (max-width: 1028px) {
+     #loading-screen svg{
+          height: 23px;
+     }
+}
+
+@media (max-width: 720px) {
+     #loading-screen svg{
+          height: 22px;
+     }
+}
+
+@media (max-width: 490px) {
+     #loading-screen svg{
+          height: 20px;
+     }
+}
+
+
+
