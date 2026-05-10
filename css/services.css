@@ -1,12 +1,14 @@
 #services-section {
      z-index: 0;
-     position: relative;
-     overflow: hidden;
+     background-color: transparent;
      padding: var(--g100);
 
-     .top,
-     .bottom {
-          position: relative;;
+     > * {
+          position: relative;
+     }
+
+     img {
+          position: fixed;
      }
 
      .tag {
@@ -15,212 +17,93 @@
      }
 
      .heading {
+          font-variation-settings: 'wght' 640;
           color: white;
-          font-variation-settings: 'wght' 650;
-          line-height: 1.42;
-          max-width: 415px;
           font-size: 15px;
-     }
-
-     .background {
-          overflow: hidden;
-          z-index: 0;
-          position: fixed;
+          max-width: 414px;
+          line-height: 1.4;
      }
 
      .block {
           background-image: repeating-linear-gradient(
                90deg,
-               rgba(255, 255, 255, 0.7) 0px,
-               rgba(255, 255, 255, 0.7) 6px,
+               rgba(255, 255, 255, 0.8) 0px,
+               rgba(255, 255, 255, 0.8) 6px,
                transparent 6px,
                transparent 9px
           );
           background-size: 100% 1px;
           background-repeat: no-repeat;
-          width: 100%;
           background-position: top;
-          padding-top: var(--g22);
+          padding-top: var(--g24);
 
-          .group-h {
-               color: #DFD4D1;
-               font-variation-settings: 'wght' 700;
+          .head {
+               color: #E6D9D6;
                font-size: 15px;
           }
 
-          ul {
+          .wrap {
+               width: 414px;
+          }
 
+          ul {
                p {
-                    color: #DDC5C5;
-                    line-height: 1.1;
-                    margin-bottom: var(--g4);
-                    font-size: 12px;
-                    font-variation-settings: 'wght' 650;
+                    font-variation-settings: 'wght' 500;
+                    color: #E6D9D6;
+                    font-size: 12.5px;
+                    margin-bottom: 4px;
                }
 
                li {
-                    margin-right: auto;
-                    color: white;
-                    font-size: 13px;
-                    font-variation-settings: 'wght' 600;
+                   font-size: 13px; 
+                   color: white;
+                   font-variation-settings: 'wght' 600;
                }
           }
 
-          .wrap {
-               width: 415px;
-          }
-          .wrap > :last-child {
-               width: 155px;
+          .second {
+               width: 141px;
           }
      }
 }
 
-@media (max-width: 1350px) {
-     #services-section {
-          .heading {
-               max-width: 389px;
-               font-size: 14px;
-          }
+/*  */
 
-          .block {
-               .group-h {
-                    font-size: 14px;
-               }
-
-               ul {
-
-                    p {
-                         font-size: 11.5px;
-                    }
-
-                    li {
-                         font-size: 12.5px;
-                    }
-               }
-
-               .wrap {
-                    width: 389px;
-               }
-               .wrap > :last-child {
-                    width: 149px;
-               }
-          }
-     }
+:root {
+     --t900: #030303;
+     --t292929: #292929;
+     --t6B6B6B: #6B6B6B;
+     --t424242: #424242;
+     --t7E7E7E: #7E7E7E;
+     --t919191: #919191;
 }
 
-@media (max-width: 1028px) {
-     #services-section {
-          .heading {
-               max-width: 361px;
-               font-size: 13px;
-          }
-
-          .block {
-               .group-h {
-                    font-size: 14px;
-               }
-
-               ul {
-
-                    p {
-                         font-size: 11.5px;
-                    }
-
-                    li {
-                         font-size: 12.5px;
-                    }
-               }
-
-               .wrap {
-                    width: 361px;
-               }
-               .wrap > :last-child {
-                    width: 149px;
-               }
-          }
-     }
+.g152 {
+     gap: var(--g152);
 }
 
-@media (max-width: 720px) {
-     #services-section {
-          .top {
-               flex-direction: column;
-               gap: var(--g16);
-               
-          }
-
-          .heading {
-               font-size: 13px;
-               max-width: none;
-               width: 100%;
-          }
-
-          .block {
-               .group-h {
-                    font-size: 13px;
-               }
-
-               ul {
-
-                    p {
-                         font-size: 11px;
-                    }
-
-                    li {
-                         font-size: 12px;
-                         letter-spacing: -0.01em;
-                    }
-               }
-
-               .wrap {
-                    width: auto;
-                    gap: var(--g40);
-               }
-               .wrap > :last-child {
-                    width: 141px;
-               }
-          }
-     }
+h2 {
+     font-family: 'Suisse';
+     color: var(--t900);
+     font-size: 17px;
+     line-height: 1.25;
 }
 
-@media (max-width: 490px) {
-     .mobile-below {
-          display: block !important;
-     }
-
-     #services-section {
-          .top {
-               flex-direction: column;
-               gap: var(--g16);
-               
-          }
-
-          .heading {
-               font-size: 13px;
-               line-height: 1.55;
-               max-width: none;
-               width: 100%;
-          }
-
-          .block {
-               .group-h {
-                    font-size: 12px;
-               }
-
-               ul.mobile-below {
-                    width: 152px !important;
-                    display: flex !important;
-
-                    p {
-                         font-size: 11px;
-                    }
-
-                    li {
-                         font-size: 13px;
-                    }
-               }
-
-          }
-     }
+.g44 {
+     gap: var(--g44);
 }
 
+main,
+section {
+     background-color: white;
+     position: relative;
+     z-index: 3;
+}
+
+.g60 {
+     gap: var(--g60);
+}
+
+.g24 {
+     gap: var(--g24);
+}

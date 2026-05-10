@@ -1,105 +1,11 @@
-#faq-section {
-     h2 {
-          margin-top: var(--g14);
-          margin-bottom: var(--g24);
-
-          .grey {
-               color: var(--t400);
-          }
-     }
-
-     .faq-wrap {
-          width: 650px;
-          
-          .jetbrains {
-               color: var(--t300);
-               font-size: 13px;
-               font-variation-settings: 'wght' 600;
-               margin-bottom: var(--g16);
-          }
-     }
-
-     .faq {
-          display: grid;
-          grid-template-columns: auto 1fr;
-          column-gap: var(--g16);
-          padding: var(--g16) 0;
-          cursor: pointer;
-          border-bottom: 1px solid #D9D9D9;
-          margin-left: var(--g12);
-          
-          svg {
-               height: 10px;
-               fill: #ABABAB;
-               align-self: center;
-               transform: translateY(-2px);
-               transition: inherit;
-          }
-
-          .question-wrap {
-               grid-column: 2 / 3;
-               transition: inherit;
-               overflow: hidden;
-               height: 0px;
-          }
-
-          h3 {
-               font-family: 'Suisse';
-               transition: inherit;
-               font-size: 15px;
-               line-height: 1.3;
-               color: #383838;
-          }
-
-          p {
-               color: #878787;
-               font-size: 13px;
-               font-variation-settings: 'wght' 560;
-               line-height: 1.55;
-               margin-top: var(--g4);
-          }
-     }
-
-     .faq.active {
-          svg {
-               transform: translateY(-1px) rotate(45deg);
-               fill: #303030;
-          }
-
-          h3 {
-               color: var(--t800);
-          }
-     }
+@media (max-width: 1350px) {
 }
 
-@media (max-width: 1350px) {
-     #faq-section {
-          gap: var(--g100);
+@media (max-width: 1028px) {
+}
 
-          .block {
-               min-width: 318px;
-          }
-          
-          .faq-wrap {
-               width: auto;
-               
-               .jetbrains {
-                    font-size: 12.5px;
-               }
-          }
+@media (max-width: 720px) {
+}
 
-          .faq {
-               svg {
-                    height: 9px;
-               }
-
-               h3 {
-                    font-size: 14px;
-               }
-
-               p {
-                    font-size: 12.5px;
-               }
-          }
-     }
+@media (max-width: 490px) {
 }

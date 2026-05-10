@@ -1,14 +1,12 @@
-/* ABOUT US */
-
 #about-section {
      .tag {
-          margin-top: 3px;
           white-space: nowrap;
+          margin-top: 3px;
      }
 
      .about-us-text-wrap {
           display: grid;
-          grid-template-columns: repeat(2, auto);
+          grid-template-columns: auto auto;
 
           img {
                grid-column: 1 / 3;
@@ -27,7 +25,7 @@
 
           p, span {
                font-size: 15px;
-               font-variation-settings: 'wght' 650;
+               font-variation-settings: 'wght' 630;
                line-height: 1.55;
           }
 
@@ -55,113 +53,23 @@
 
           .reveal-text-grey.revealed {
                filter: blur(0px);
-               color: var(--t6E6E6E);
-          }
-     }
-}
-
-@media (max-width: 1350px) {
-     #about-section {
-          justify-content: space-between;
-          gap: 0;
-
-          .about-us-text-wrap {
-               column-gap: var(--g26);
-               grid-template-columns: 401px 372px;
-
-
-               p, span {
-                    font-size: 14px;
-                    letter-spacing: -.01em;
-               }
-
-               .first {
-                    max-width: 401px;
-               }
-
-               .second {
-                    max-width: 372px;
-               }
-          }
-     }
-     
-     @media (max-width: 1200px) {
-          #about-section {
-               .about-us-text-wrap {
-                    grid-template-columns: 372px 346px;
-                    
-                    p, span {
-                         font-size: 13px !important;
-                    }
-
-                    .first {
-                         max-width: 372px;
-                    }
-
-                    .second {
-                         max-width: 346px;
-                    }
-
-                    img {
-                         aspect-ratio: 1.5 / 1;
-                    }
-               }
-          }
-     }
-}
-
-@media (max-width: 1052px) {
-     #about-section {
-          gap: var(--g100);
-
-         .about-us-text-wrap {
-               grid-template-columns: 1fr;
-
-               img {
-                    grid-column: 1 / 2;
-               }
-
-               .first {
-                    max-width: none;
-                    padding-bottom: var(--g14);
-               }
-
-               .second {
-                    max-width: none;
-               }
-
-               p, span {
-                    font-size: 13px !important;
-               }
-         }
-     }
-}
-
-@media (max-width: 720px) {
-     #about-section {
-          gap: var(--g24);
-          flex-direction: column;
-
-          .about-us-text-wrap {
-               p, span {
-                    font-size: 13.5px !important;
-               }
-         }
-          
-     }
-}
-
-@media (max-width: 490px) {
-     #about-section {
-          #about-section {
-               .about-us-text-wrap {
-                    p, span {
-                         font-size: 12.5px !important;
-                         line-height: 1.6;
-                    }
-               }
+               color: var(--t6B6B6B);
           }
      }
 }
 
 
+/*  */
+
+:root {
+     --t900: #030303;
+     --t292929: #292929;
+     --t6B6B6B: #6B6B6B;
+     --t424242: #424242;
+     --t7E7E7E: #7E7E7E;
+     --t919191: #919191;
+}
+
+.g152 {
+     gap: var(--g152);
+}
