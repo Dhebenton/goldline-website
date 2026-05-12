@@ -1865,7 +1865,7 @@ footer.above {
 
                     .jetbrains {
                          font-size: 12.5px;
-                         margin: var(--g20) 0 4px 0;
+                         margin: var(--g20) 0 var(--g8) 0;
                     }
 
                     p {
@@ -3179,7 +3179,7 @@ footer.above {
                     .jetbrains {
                          transition-duration: .3s;
                          transition-delay: .5s;
-                         font-size: 13px;
+                         font-size: 12.5px;
                     }
 
                     p {
