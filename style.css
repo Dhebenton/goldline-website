@@ -1864,7 +1864,7 @@ footer.above {
 
                     .jetbrains {
                          font-size: 12.5px;
-                         margin: var(--g16) 0 6px 0;
+                         margin: var(--g20) 0 4px 0;
                     }
 
                     p {
@@ -3234,17 +3234,25 @@ footer.above {
 
      #portfolio-section {
           .portfolio-grid {
+
+               .portfolio-card.outview {
+                    .jetbrains,
+                    p {
+                         transform: translate(-3px);
+                    }
+               }
             
                .portfolio-card {
                 
 
                     .jetbrains {
-                         font-size: 12px;
+                         font-size: 13px;
                     }
 
                     p {
                          font-size: 12px;
                     }
+
                }
           }
      }
