@@ -1427,6 +1427,28 @@ footer.above {
           }
      }
 
+     @media (max-width: 1180px) {
+          #about-section {
+               gap: var(--g140);
+               .about-us-text-wrap {
+                    grid-template-columns: 1fr;
+                    gap: 0px;
+
+                    p,span {
+                         font-size: 14px;
+                    }
+
+                    .second {
+                         margin: var(--g12) 0 var(--g36) 0;
+                    }
+                    img {
+                         aspect-ratio: 1.5 / 1;
+                         grid-column: 1 / 2;
+                    }
+               }
+          }
+     }
+
 
      /* ============================================================
           PORTFOLIO SECTION
@@ -1823,66 +1845,6 @@ footer.above {
           .four  { right: 30%; width: auto; height: 75px; top: -1%; }
          
      }
-
-
-     /* ============================================================
-     ABOUT SECTION
-     ============================================================ */
-
-     #about-section {
-          .tag {
-               white-space: nowrap;
-               margin-top: 4px;
-          }
-
-          .about-us-text-wrap {
-               display: grid;
-               row-gap: var(--g40);
-               column-gap: var(--g32);
-               align-items: start;
-               grid-template-columns: 435px 409px;
-
-               img {
-                    grid-column: 1 / 3;
-                    width: 100%;
-                    filter: blur(5px);
-                    opacity: .7;
-                    border-radius: 2px;
-               }
-
-               img.revealed {
-                    filter: blur(0);
-                    opacity: 1;
-               }
-
-               p, span {
-                    font-size: 14.5px;
-                    font-variation-settings: 'wght' 700;
-                    line-height: 1.55;
-               }
-
-               span {
-                    transition: inherit;
-               }
-
-               .reveal-text-dark,
-               .reveal-text-grey {
-                    color: #E6E6E6;
-                    filter: blur(3px);
-               }
-
-               .reveal-text-dark.revealed {
-                    filter: blur(0px);
-                    color: var(--t900);
-               }
-
-               .reveal-text-grey.revealed {
-                    filter: blur(0px);
-                    color: var(--t400);
-               }
-          }
-     }
-
 
      /* ============================================================
      PORTFOLIO SECTION
@@ -2567,57 +2529,15 @@ footer.above {
      ============================================================ */
 
      #about-section {
-          .tag {
-               white-space: nowrap;
-               margin-top: 4px;
-          }
+          flex-direction: column;
+          gap: var(--g24);
 
           .about-us-text-wrap {
-               display: grid;
-               row-gap: var(--g40);
-               column-gap: var(--g32);
-               align-items: start;
-               grid-template-columns: 435px 409px;
-
-               img {
-                    grid-column: 1 / 3;
-                    width: 100%;
-                    filter: blur(5px);
-                    opacity: .7;
-                    border-radius: 2px;
-               }
-
-               img.revealed {
-                    filter: blur(0);
-                    opacity: 1;
-               }
-
                p, span {
-                    font-size: 14.5px;
-                    font-variation-settings: 'wght' 700;
-                    line-height: 1.55;
+                    font-size: 13.5px;
                }
 
-               span {
-                    transition: inherit;
-               }
-
-               .reveal-text-dark,
-               .reveal-text-grey {
-                    color: #E6E6E6;
-                    filter: blur(3px);
-               }
-
-               .reveal-text-dark.revealed {
-                    filter: blur(0px);
-                    color: var(--t900);
-               }
-
-               .reveal-text-grey.revealed {
-                    filter: blur(0px);
-                    color: var(--t400);
-               }
-          }
+          } 
      }
 
 
@@ -3352,7 +3272,6 @@ footer.above {
           .one   { top: -4%; left: auto; right: 0;  }
           .two   { left: 0;  bottom: -4%;              }
           .three { left: 0%;  bottom: auto; top: 14%; }
-          .five,
           .four  { display: none;}
           .six   { right: 0%; bottom: 14%; }
      }
@@ -3363,35 +3282,12 @@ footer.above {
      ============================================================ */
 
      #about-section {
-          .tag {
-               white-space: nowrap;
-               margin-top: 4px;
-          }
 
           .about-us-text-wrap {
-               display: grid;
-               row-gap: var(--g40);
-               column-gap: var(--g32);
-               align-items: start;
-               grid-template-columns: 435px 409px;
 
-               img {
-                    grid-column: 1 / 3;
-                    width: 100%;
-                    filter: blur(5px);
-                    opacity: .7;
-                    border-radius: 2px;
-               }
-
-               img.revealed {
-                    filter: blur(0);
-                    opacity: 1;
-               }
 
                p, span {
-                    font-size: 14.5px;
-                    font-variation-settings: 'wght' 700;
-                    line-height: 1.55;
+                    font-size: 13.5px;
                }
 
                span {
