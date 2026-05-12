@@ -3336,8 +3336,8 @@ footer.above {
           }
 
           h2 {
-               max-width: 350px;
-               font-size: 16.5px;
+               max-width: none;
+               font-size: 16px;
                letter-spacing: -.01em;
           }
 
@@ -3346,7 +3346,7 @@ footer.above {
                opacity: 1;
                transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
                border-radius: 3px;
-               width: 16vw;
+               width: 18vw;
           }
 
           .one   { top: -4%; left: auto; right: 0;  }
