@@ -2544,43 +2544,21 @@ footer.above {
      ============================================================ */
 
      #phillosophy-section {
-          .block {
-               position: sticky;
-               top: 24%;
-               padding: var(--g200);
-          }
-
-          h2 span {
-               transition: inherit;
-               transition-duration: .36s !important;
-          }
-          .tag {
-               transition-duration: .36s !important;
-          }
 
           h2 {
-               text-align: center;
-               max-width: 550px;
-               line-height: 1.25;
-               color: var(--t900);
-               font-size: 23px;
-               letter-spacing: .005em;
+               max-width: 450px;
           }
 
           img {
-               position: absolute;
-               opacity: 1;
-               transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-               width: 100px;
-               border-radius: 3px;
+               width: 11vw;
           }
-
-          .one   { top: 5%;    left: 26%;  }
-          .two   { left: 0;               }
-          .three { left: 28%;  bottom: 0%; }
-          .four  { right: 30%; width: auto; height: 95px; top: -1%; }
-          .five  { right: 0;   top: 45%;  }
-          .six   { right: 24%; bottom: 6%; }
+          
+          .one   { top: 20%; left: 8%;  }
+          .two   { bottom: 15%; left: 0;}
+          .three { left: 35%;  bottom: 0%; }
+          .four  { right: auto; left: 55%; width: 8vw; height: auto ; top: -1%; }
+          .five  { right: 0;   top: 20%;  }
+          .six   { right: 12%; bottom: 16%; }
      }
 
 
@@ -3352,32 +3330,11 @@ footer.above {
      ============================================================ */
 
      #phillosophy-section {
-          height: 160vh;
-          padding-bottom: var(--container-v);
-          overflow-x: visible !important;
-          margin-top: -5%;
-
-          .block {
-               position: sticky;
-               top: 24%;
-               padding: var(--g200);
-          }
-
-          h2 span {
-               transition: inherit;
-               transition-duration: .36s !important;
-          }
-          .tag {
-               transition-duration: .36s !important;
-          }
 
           h2 {
-               text-align: center;
-               max-width: 550px;
-               line-height: 1.25;
-               color: var(--t900);
-               font-size: 23px;
-               letter-spacing: .005em;
+               max-width: 350px;
+               font-size: 17px;
+               letter-spacing: -.005em;
           }
 
           img {
