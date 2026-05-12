@@ -3331,6 +3331,10 @@ footer.above {
 
      #phillosophy-section {
 
+          .block {
+               padding: var(--g140) 0;
+          }
+
           h2 {
                max-width: 350px;
                font-size: 17px;
@@ -3341,16 +3345,16 @@ footer.above {
                position: absolute;
                opacity: 1;
                transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-               width: 100px;
                border-radius: 3px;
+               width: 16vw;
           }
 
-          .one   { top: 5%;    left: 26%;  }
-          .two   { left: 0;               }
-          .three { left: 28%;  bottom: 0%; }
-          .four  { right: 30%; width: auto; height: 95px; top: -1%; }
-          .five  { right: 0;   top: 45%;  }
-          .six   { right: 24%; bottom: 6%; }
+          .one   { top: -4%; left: auto; right: 0;  }
+          .two   { left: 0;  bottom: -4%;              }
+          .three { left: 0%;  bottom: auto; top: 14%; }
+          .five,
+          .four  { display: none;}
+          .six   { right: 0%; bottom: 14%; }
      }
 
 
