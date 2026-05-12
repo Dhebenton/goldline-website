@@ -3218,12 +3218,8 @@ footer.above {
                width: 334px;
           }
 
-          li p {
-               font-size: 11.5px;
-          }
-
           li {
-               font-size: 12px;
+               font-size: 13px;
           }
 
           .seconds {
@@ -3236,7 +3232,7 @@ footer.above {
 
           ul.below-mobile {
                display: flex !important;
-               width: 130px;
+               width: 141px;
           }
 
           .block {
