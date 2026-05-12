@@ -3257,7 +3257,7 @@ footer.above {
 
           h2 {
                max-width: none;
-               font-size: 16px;
+               font-size: 16.5px;
                letter-spacing: -.01em;
           }
 
@@ -3272,6 +3272,7 @@ footer.above {
           .one   { top: -4%; left: auto; right: 0;  }
           .two   { left: 0;  bottom: -4%;              }
           .three { left: 0%;  bottom: auto; top: 14%; }
+          .five,
           .four  { display: none;}
           .six   { right: 0%; bottom: 14%; }
      }
