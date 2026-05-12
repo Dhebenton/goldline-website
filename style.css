@@ -3234,6 +3234,7 @@ footer.above {
 
      #portfolio-section {
           .portfolio-grid {
+               
 
                .portfolio-card.outview {
                     .jetbrains,
@@ -3243,14 +3244,22 @@ footer.above {
                }
             
                .portfolio-card {
+
+                    .cover {
+                         transition-duration: 1.1s;
+                    }
                 
 
                     .jetbrains {
+                         transition-duration: .3s;
+                         transition-delay: .5s;
                          font-size: 13px;
                     }
 
                     p {
                          font-size: 12px;
+                         transition-duration: .3s;
+                         transition-delay: .6s;
                     }
 
                }
