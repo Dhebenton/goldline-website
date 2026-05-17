@@ -618,9 +618,10 @@
       const isMobile  = window.innerWidth < 800;
       const FLICK_VEL = isMobile ? 0.5 : 0.4;
       const MOM_MULT  = isMobile ? 6 : 18;
+      const snapIndex = isMobile ? dragStartIndex : current;
 
       if (Math.abs(velX) > FLICK_VEL) {
-        snapTo(Math.max(0, Math.min(velX < 0 ? dragStartIndex + 1 : dragStartIndex - 1, N - 1)));
+        snapTo(Math.max(0, Math.min(velX < 0 ? snapIndex + 1 : snapIndex - 1, N - 1)));
         resetAutoplay();
         return;
       }

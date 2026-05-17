@@ -1606,9 +1606,8 @@ footer.above {
      ============================================================ */
 
      #faq-section {
-
           .faq-container {
-               width: 650px;
+               width: 560px;
 
                .group {
                     font-size: 12px;
@@ -1948,6 +1947,37 @@ footer.above {
                }
           }
      }
+
+      /* ============================================================
+          FAQ
+     ============================================================ */
+
+     #faq-section {
+          flex-direction: column;
+          > :first-child {
+               display: grid;
+               margin-bottom: var(--g72);
+               width: 100%;
+               grid-template-columns: 1fr auto;
+
+               .tag {
+                    grid-column: 1 / 3;
+               }
+
+               h2 {
+                    margin-bottom: 0;
+               }
+
+               a {
+                    align-self: end;
+                    justify-self: end;
+               }
+          }
+
+          .faq-container {
+               width: 100%;
+          }
+     }
 }
 
 /* ===================================================================================
@@ -2149,6 +2179,37 @@ footer.above {
                }
           }
 
+     }
+
+      /* ============================================================
+          FAQ
+     ============================================================ */
+
+     #faq-section {
+          .faq-container {
+               width: auto;
+
+               .group {
+                    font-size: 11px;
+               }
+
+               .faq {
+                    svg {
+                         height: 8px;
+                    }
+
+                    h3 {
+                         font-size: 13px;
+                    }
+
+                    .answer-wrap {
+                         p {
+                              font-size: 12px;
+                              margin-top: 1px;
+                         }
+                    }
+               }
+          }
      }
 }
 
@@ -2412,6 +2473,56 @@ footer.above {
 
                .card.main.num {
                     min-width: 200px !important;
+               }
+          }
+     }
+
+     /* ============================================================
+     FAQ SECTION
+     ============================================================ */
+
+     #faq-section {
+          > :first-child {
+               display: flex;
+               width: 100%;
+
+               .tag {
+                    grid-column: 1 / 3;
+               }
+
+               h2 {
+                    margin-bottom: 0;
+                    line-height: 1.3;
+                    margin-bottom: var(--g20);
+               }
+
+               a {
+                    align-self: start;
+                    justify-self: start;
+               }
+          }
+
+          .faq-container {
+               .group {
+                    font-size: 11px;
+               }
+
+               .faq {
+                    margin-left: 4px;
+                    svg {
+                         height: 8px;
+                    }
+
+                    h3 {
+                         font-size: 13px;
+                    }
+
+                    .answer-wrap {
+                         p {
+                              font-size: 11ppx;
+                              margin-top: 1px;
+                         }
+                    }
                }
           }
      }
