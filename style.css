@@ -1958,6 +1958,7 @@ footer.above {
      nav {
           border-color: hsl(0, 0%, 0%, 0.07) !important;
           background-color: white !important;
+          padding: 9px;
           .content {
                .menu-button {
                     scale: .9;
