@@ -431,16 +431,17 @@
     const items = Array.from(track.children);
     const N     = items.length;
 
-    let offset    = 0;
-    let current   = 0;
-    let dragging  = false;
-    let startX    = 0;
-    let startOff  = 0;
-    let lastX     = 0;
-    let lastT     = 0;
-    let velX      = 0;
-    let rafId     = null;
-    let autoTimer = null;
+    let offset         = 0;
+    let current        = 0;
+    let dragStartIndex = 0;
+    let dragging       = false;
+    let startX         = 0;
+    let startOff       = 0;
+    let lastX          = 0;
+    let lastT          = 0;
+    let velX           = 0;
+    let rafId          = null;
+    let autoTimer      = null;
 
     let cachedOffsets   = [];
     let cachedWidths    = [];
@@ -536,7 +537,8 @@
       document.body.style.userSelect        = 'none';
       document.body.style.pointerEvents     = 'none';
       track.style.pointerEvents             = 'auto';
-      dragging = true;
+      dragging       = true;
+      dragStartIndex = current;
       startX = lastX = e.clientX;
       startOff = offset;
       lastT = performance.now();
@@ -570,7 +572,8 @@
       clearTimeout(autoTimer);
       track.classList.remove('is-snapping');
       const t = e.touches[0];
-      dragging = true;
+      dragging       = true;
+      dragStartIndex = current;
       startX = lastX = t.clientX;
       startOff = offset;
       lastT = performance.now();
@@ -617,7 +620,7 @@
       const MOM_MULT  = isMobile ? 6 : 18;
 
       if (Math.abs(velX) > FLICK_VEL) {
-        snapTo(Math.max(0, Math.min(velX < 0 ? current + 1 : current - 1, N - 1)));
+        snapTo(Math.max(0, Math.min(velX < 0 ? dragStartIndex + 1 : dragStartIndex - 1, N - 1)));
         resetAutoplay();
         return;
       }
