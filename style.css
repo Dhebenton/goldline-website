@@ -592,6 +592,8 @@ body:has(nav ul li .toggle:hover) {
 main,
 section {
 	z-index: 10;
+     max-width: 100svw;
+     overflow: hidden;
 	position: relative;
 	background-color: white;
 }
@@ -666,6 +668,7 @@ main {
 #phillosophy-section {
 	height: 180vh;
 	margin-bottom: calc(var(--container-v) * -1);
+     overflow: visible;
 
 	.block {
 		position: sticky;
