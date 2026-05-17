@@ -1744,27 +1744,6 @@ footer.above {
 
          
      }
-
-     body:has(.dropdown-wrap:hover),
-     body:has(nav ul li .toggle:hover) {
-          .screen-blur {
-               opacity: 1 !important;
-          }
-
-          nav .dropdown-wrap {
-               pointer-events: all !important;
-               transform: translateY(100%);
-               opacity: 1;
-          }
-
-          .content {
-               border-color: hsl(0, 0%, 0%, 0.07);
-               background-color: white;
-          }
-
-          
-     }
-
 }
 
 /* ===================================================================================
@@ -1856,6 +1835,29 @@ footer.above {
 
      .slider-indicator {
         scale: .85;
+     }
+
+     /* ============================================================
+          NAV
+     ============================================================ */
+
+     nav {
+          .content {
+               .menu-button {
+                    scale: .9;
+               }
+
+               .logo {
+                    height: 13px;
+               }
+
+               .pulse,
+               ul {
+                    display: none;
+               }
+          }
+
+         
      }
 
 }
