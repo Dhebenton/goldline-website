@@ -2051,6 +2051,7 @@ footer.above {
      }
 
      #phillosophy-section {
+          margin-top: calc(var(--container) * -2);
 
           h2 {
                font-size: 15px;
