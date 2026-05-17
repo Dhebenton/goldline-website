@@ -1851,7 +1851,7 @@ footer.above {
                gap: 0px;
 
                .second {
-                    margin-top: var(--g12);
+                    margin-top: calc(var(--g8) + 1px);
                }
                img {
                     grid-column: 1 / 2;
@@ -2132,6 +2132,8 @@ footer.above {
                p,
                span {
                     font-size: 13px;
+                    line-height: 1.6;
+                    font-variation-settings: 'wght' 620;
                }
 
           }
