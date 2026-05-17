@@ -309,16 +309,13 @@
   }
 })();
 
-// ============================================================
-//  FAQ — hover to expand
-// ============================================================
-
 (function () {
   function initFaq() {
     const faqs = document.querySelectorAll('.faq');
     if (!faqs.length) return;
 
-    const isMobile = window.innerWidth < 1042;
+    const isMobile    = window.innerWidth < 1042;
+    const isBelowMobile = window.innerWidth < 530;
 
     function setActive(faq) {
       faqs.forEach(f => {
@@ -327,7 +324,10 @@
       });
       faq.classList.add('active');
       const answerWrap = faq.querySelector('.answer-wrap');
-      answerWrap.style.height = answerWrap.querySelector('p').offsetHeight + 6 + 'px';
+      const p = isBelowMobile
+        ? answerWrap.querySelector('p.below-mobile')
+        : answerWrap.querySelector('p.no-mobile');
+      answerWrap.style.height = p.offsetHeight + 6 + 'px';
     }
 
     setActive(faqs[0]);
