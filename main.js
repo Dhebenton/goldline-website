@@ -314,8 +314,15 @@
     const faqs = document.querySelectorAll('.faq');
     if (!faqs.length) return;
 
-    const isMobile    = window.innerWidth < 1042;
+    const isMobile      = window.innerWidth < 1042;
     const isBelowMobile = window.innerWidth < 530;
+
+    function getP(faq) {
+      const answerWrap = faq.querySelector('.answer-wrap');
+      return isBelowMobile
+        ? answerWrap.querySelector('p.below-mobile')
+        : answerWrap.querySelector('p.no-mobile');
+    }
 
     function setActive(faq) {
       faqs.forEach(f => {
@@ -324,17 +331,14 @@
       });
       faq.classList.add('active');
       const answerWrap = faq.querySelector('.answer-wrap');
-      const p = isBelowMobile
-        ? answerWrap.querySelector('p.below-mobile')
-        : answerWrap.querySelector('p.no-mobile');
-      answerWrap.style.height = p.offsetHeight + 6 + 'px';
+      answerWrap.style.height = getP(faq).offsetHeight + 6 + 'px';
     }
-
-    setActive(faqs[0]);
 
     faqs.forEach(faq => {
       faq.addEventListener(isMobile ? 'click' : 'mouseenter', () => setActive(faq));
     });
+
+    setTimeout(() => setActive(faqs[0]), 150);
   }
 
   if (document.readyState === 'loading') {
