@@ -1824,45 +1824,102 @@ footer.above {
 
 
      /* ============================================================
-   ABOUT US
-============================================================ */
+          ABOUT US
+     ============================================================ */
 
-#about-section {
-     flex-direction: column;
-     gap: var(--g28);
+     #about-section {
+          flex-direction: column;
+          gap: var(--g28);
 
-	.about-us-text-wrap {
-          grid-template-columns: auto auto;
-		br {
-               display: none;
-          }
-
-		p,
-		span {
-               white-space: wrap;
-			font-size: 13.5px;
-		}
-
-	}
-
-     @media (max-width: 920px) {
           .about-us-text-wrap {
-               grid-template-columns: 1fr;
-               gap: 0px;
+               grid-template-columns: auto auto;
+               br {
+                    display: none;
+               }
 
-               .second {
-                    margin-top: calc(var(--g8) + 1px);
+               p,
+               span {
+                    white-space: wrap;
+                    font-size: 13.5px;
                }
-               img {
-                    grid-column: 1 / 2;
-                    margin-top: var(--g40);
-                    aspect-ratio: 1.6 / 1;
-                    border-radius: 4px;
-               }
-               p, span {
-                    font-size: 14px;
+
+          }
+
+          @media (max-width: 920px) {
+               .about-us-text-wrap {
+                    grid-template-columns: 1fr;
+                    gap: 0px;
+
+                    .second {
+                         margin-top: calc(var(--g8) + 1px);
+                    }
+                    img {
+                         grid-column: 1 / 2;
+                         margin-top: var(--g40);
+                         aspect-ratio: 1.6 / 1;
+                         border-radius: 4px;
+                    }
+                    p, span {
+                         font-size: 14px;
+                    }
                }
           }
+     }
+
+     /* ============================================================
+     PORTFOLIO
+     ============================================================ */
+
+     #portfolio-section {
+          .portfolio-grid {
+               grid-template-columns: repeat(2, 1fr);
+               column-gap: var(--g28);
+
+               .one {
+                    grid-column: 1 / 2;
+               }
+
+               .two {
+                    grid-column: 2 / 3;
+                    margin-top: 0;
+               }
+
+               .one, .two {
+                    grid-template-columns: 1fr;
+                    br {
+                         display: none;
+                    }
+
+                    .jetbrains {
+                         margin-bottom: calc(var(--g4) * -2);
+                         margin-top: 0;
+                    }
+
+                    .img-wrap {
+                         grid-column: 1 / 2;
+
+                         img {
+                              height: 380px;
+                         }
+                    }
+               }
+
+               .three {
+                    grid-column: 1 / 3;
+               }
+          }
+
+          .portfolio-card {
+
+               .jetbrains {
+                    font-size: 12px;
+               }
+
+               p {
+                    font-size: 12px;
+               }
+          }
+
      }
 }
 
@@ -1972,6 +2029,44 @@ footer.above {
                }
 
           }
+     }
+
+     #portfolio-section {
+          .portfolio-grid {
+               grid-template-columns: repeat(1, 1fr);
+               row-gap: var(--g52);
+
+               .one,
+               .two,
+               .three {
+                    grid-column: 1 / 2;
+                    grid-template-columns: 1fr;
+                    br {
+                         display: none;
+                    }
+
+                    .jetbrains {
+                    }
+
+                    .img-wrap {
+                         grid-column: 1 / 2;
+
+                         img {
+                              height: 380px;
+                         }
+                    }
+               }
+
+          .portfolio-card {
+               .jetbrains {
+                    font-size: 12px;
+               }
+
+               p {
+                    font-size: 12px;
+               }
+          }
+
      }
 }
 

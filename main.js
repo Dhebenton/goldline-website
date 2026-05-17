@@ -270,6 +270,8 @@
     const cards = document.querySelectorAll('.portfolio-card');
     if (!cards.length) return;
 
+    const isMobile = window.innerWidth < 800;
+
     const defaultObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -286,7 +288,7 @@
           twoObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 1, rootMargin: '0px 0px -80px 0px' });
+    }, { threshold: 1, rootMargin: isMobile ? '0px' : '0px 0px -80px 0px' });
 
     cards.forEach(card => {
       (card.classList.contains('two') ? twoObserver : defaultObserver).observe(card);
@@ -299,7 +301,6 @@
     initPortfolio();
   }
 })();
-
 
 // ============================================================
 //  FAQ — hover to expand
