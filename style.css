@@ -1983,6 +1983,7 @@ footer.above {
                     font-size: 23px;
                     font-variation-settings: 'wght' 700;
                     letter-spacing: -.00em;
+                    margin-bottom: var(--g8);
                     max-width: 380px;
                }
                a {
