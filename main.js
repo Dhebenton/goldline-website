@@ -630,6 +630,7 @@
     });
 
     function updateVisibility() {
+      if (window.innerWidth < 800) return;
       items.forEach((el, i) => {
         const isPast = (cachedOffsets[i] + cachedWidths[i]) <= offset + 8;
         el.classList.toggle('is-past', isPast);

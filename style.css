@@ -2333,13 +2333,9 @@ footer.above {
           SERVICES
      ============================================================ */
 
-     /* ============================================================
-          SERVICES
-     ============================================================ */
-
      #services-section {
           .top {
-               font-size: 14px;
+               font-size: 13px;
                width: auto;
           }
 
@@ -2396,7 +2392,7 @@ footer.above {
                     min-width: 230px;
 
                     h4 {
-                         font-size: 14px;
+                         font-size: 13px;
                     }
 
                     p {
@@ -2407,8 +2403,8 @@ footer.above {
                     }
                }
 
-               .card.num {
-                    min-width: 250px !important;
+               .card.main.num {
+                    min-width: 200px !important;
                }
           }
      }
