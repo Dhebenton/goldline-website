@@ -1823,7 +1823,47 @@ footer.above {
      }
 
 
+     /* ============================================================
+   ABOUT US
+============================================================ */
 
+#about-section {
+     flex-direction: column;
+     gap: var(--g28);
+
+	.about-us-text-wrap {
+          grid-template-columns: auto auto;
+		br {
+               display: none;
+          }
+
+		p,
+		span {
+               white-space: wrap;
+			font-size: 13.5px;
+		}
+
+	}
+
+     @media (max-width: 920px) {
+          .about-us-text-wrap {
+               grid-template-columns: 1fr;
+               gap: 0px;
+
+               .second {
+                    margin-top: var(--g12);
+               }
+               img {
+                    grid-column: 1 / 2;
+                    margin-top: var(--g40);
+                    aspect-ratio: 1.6 / 1;
+                    border-radius: 4px;
+               }
+               p, span {
+                    font-size: 14px;
+               }
+          }
+     }
 }
 
 /* ===================================================================================
@@ -1918,6 +1958,20 @@ footer.above {
           .two   { left: auto; right: 0%;  top: -12%; }
           .three { left: 0%; bottom: -1%; }
           .five  { right: -4%; right: -2%; top: auto; bottom: 9%; }
+     }
+
+     /* ============================================================
+          ABOUT SECTION
+     ============================================================ */
+
+     #about-section {
+          .about-us-text-wrap {
+               p,
+               span {
+                    font-size: 13px;
+               }
+
+          }
      }
 }
 
@@ -2067,6 +2121,20 @@ footer.above {
           .two   { left: auto; right: 0%;  top: -12%; }
           .three { left: 0%; bottom: -1%; }
           .five  { right: -4%; right: -2%; top: auto; bottom: 9%; }
+     }
+
+     /* ============================================================
+          ABOUT SECTION
+     ============================================================ */
+
+     #about-section {
+          .about-us-text-wrap {
+               p,
+               span {
+                    font-size: 12.5px;
+               }
+
+          }
      }
 
 }
