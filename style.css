@@ -1543,14 +1543,6 @@ footer.above {
           }
 
           .block {
-               background-image: repeating-linear-gradient(
-                    90deg,
-                    rgba(255, 255, 255, 0.75) 0px,
-                    rgba(255, 255, 255, 0.75) 6px,
-                    transparent 6px,
-                    transparent 9px
-               );
-             
                .group {
                     width: 410px;
                }
@@ -1920,6 +1912,39 @@ footer.above {
           }
 
      }
+
+     /* ============================================================
+          SERVICES
+     ============================================================ */
+
+     #services-section {
+          .top {
+               font-size: 13px;
+               width: 381px;
+          }
+
+          .block {
+               .group {
+                    width: 381px;
+               }
+
+               .head {
+                    font-size: 12px;
+               }
+
+               .group > :last-child {
+                    width: 129px;
+               }
+
+               ul li p {
+                    font-size: 11.5px;
+               }
+
+               li {
+                    font-size: 12px;
+               }
+          }
+     }
 }
 
 /* ===================================================================================
@@ -2081,6 +2106,43 @@ footer.above {
                }
           }
 
+     }
+
+     /* ============================================================
+          SERVICES
+     ============================================================ */
+
+     #services-section {
+          .top {
+               font-size: 14px;
+               width: auto;
+          }
+
+          .first {
+               flex-direction: column;
+               gap: var(--g20);
+          }
+
+          .block {
+               padding: var(--g20);
+               .group {
+                    width: auto !important;
+                    flex-direction: column;
+                    gap: var(--g12) !important;
+               }
+
+               .head {
+                    font-size: 12px;
+               }
+
+               .group > :last-child {
+                    width: 115px;
+               }
+
+               li {
+                    font-size: 12.5px;
+               }
+          }
      }
 }
 
@@ -2256,6 +2318,45 @@ footer.above {
      #portfolio-section {
           .portfolio-card {
                p, jetbrains {
+                    font-size: 12px;
+               }
+          }
+     }
+
+     /* ============================================================
+          SERVICES
+     ============================================================ */
+
+     #services-section {
+          .top {
+               font-size: 14px;
+               width: auto;
+          }
+
+          .first {
+               flex-direction: column;
+               gap: var(--g20);
+          }
+
+          .block {
+               .group {
+                    width: 320px;
+                    gap: var(--g52);
+               }
+
+               .head {
+                    font-size: 12px;
+               }
+
+               .group > :last-child {
+                    width: 129px;
+               }
+
+               ul li p {
+                    font-size: 11.5px;
+               }
+
+               li {
                     font-size: 12px;
                }
           }
