@@ -1978,6 +1978,8 @@ footer.above {
                width: 100%;
           }
      }
+
+     
 }
 
 /* ===================================================================================
@@ -2523,6 +2525,17 @@ footer.above {
                               margin-top: 1px;
                          }
                     }
+               }
+          }
+     }
+
+     #blog-section {
+          .blog-card {
+               width: 265px;
+               min-width: 265px;
+
+               h3 {
+                    font-size: 12px;
                }
           }
      }
