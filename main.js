@@ -605,13 +605,16 @@
 
     // Momentum
     function momentum() {
-      const FLICK_VEL = 0.4;
+      const isMobile  = window.innerWidth < 800;
+      const FLICK_VEL = isMobile ? 0.2 : 0.4;
+      const MOM_MULT  = isMobile ? 8 : 18;
+
       if (Math.abs(velX) > FLICK_VEL) {
         snapTo(Math.max(0, Math.min(velX < 0 ? current + 1 : current - 1, N - 1)));
         resetAutoplay();
         return;
       }
-      let vel = -velX * 18;
+      let vel = -velX * MOM_MULT;
       function step() {
         if (Math.abs(vel) < 0.5 || offset <= 0 || offset >= cachedMaxOffset) {
           snapToNearest(); resetAutoplay(); return;
