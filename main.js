@@ -71,12 +71,12 @@
     const block = philSection.querySelector('.block');
     if (block) block.style.transform = 'translateY(0%)';
 
-    const isPhilMobile  = window.innerWidth < 1024;
+    const isPhilMobile  = window.innerWidth < 1052;
     const revealOrder   = [...imgs].sort(() => Math.random() - 0.5);
 
     imgs.forEach(img => {
       const isLarge =
-        (img.classList.contains('two') || img.classList.contains('five')) &&
+        (img.classList.contains('four') || img.classList.contains('six')) &&
         !isPhilMobile;
 
       img._startY    = isLarge ? 640 + Math.random() * 40 : 270 + Math.random() * 40;
@@ -86,7 +86,7 @@
       const sign     = Math.random() < 0.5 ? -1 : 1;
       img._targetRot = sign * (3 * Math.random());
 
-      img.style.height    = `${67 + Math.random() * 5}px`;
+      img.style.height    = `${(isPhilMobile ? 57 : 67) + Math.random() * 5}px`;
       img.style.width     = 'auto';
       img.style.opacity   = '0';
       img.style.filter    = 'blur(8px)';
@@ -141,7 +141,6 @@
     initPhilosophyScroll();
   }
 })();
-
 
 // ============================================================
 //  ABOUT SCROLL

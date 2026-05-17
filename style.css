@@ -1802,6 +1802,27 @@ footer.above {
           }
      }
 
+     /* ============================================================
+          PHILOSOPHY SCROLL
+     ============================================================ */
+
+     #phillosophy-section {
+          height: 160vh;
+
+          h2 {
+               font-size: 19px;
+               max-width: 480px;
+          }
+
+          .one   { left: 11%; top: -8%; }
+          .two   { left: -1%;  top: 48%; }
+          .three { left: 11%; bottom: -3%; }
+          .four  { right: 8%; top: -5%; }
+          .five  { right: -2%;   top: 50%; }
+          .six   { right: 12%; bottom: -6%; }
+     }
+
+
 
 }
 
@@ -1874,6 +1895,29 @@ footer.above {
                     width: 100%;
                }
           }
+     }
+
+     /* ============================================================
+          PHILOSOPHY SCROLL
+     ============================================================ */
+
+     #phillosophy-section {
+          height: 160vh;
+
+          h2 {
+               font-size: 18px;
+               max-width: 450px;
+          }
+
+          img {
+               scale: 1;
+          }
+
+
+          .one   { left: 3%; top: 4%; }
+          .two   { left: auto; right: 0%;  top: -12%; }
+          .three { left: 0%; bottom: -1%; }
+          .five  { right: -4%; right: -2%; top: auto; bottom: 9%; }
      }
 }
 
@@ -2004,6 +2048,24 @@ footer.above {
           .logos {
                display: none;
           }
+     }
+
+     #phillosophy-section {
+
+          h2 {
+               font-size: 15px;
+               max-width: 380px;
+          }
+
+          img {
+               scale: .9;
+          }
+
+
+          .one   { left: 3%; top: 4%; }
+          .two   { left: auto; right: 0%;  top: -12%; }
+          .three { left: 0%; bottom: -1%; }
+          .five  { right: -4%; right: -2%; top: auto; bottom: 9%; }
      }
 
 }
