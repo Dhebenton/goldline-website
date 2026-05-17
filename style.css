@@ -34,6 +34,7 @@
 	--g140: round(calc(140px * var(--gmultiplier)), 1px);
 	--g120: round(calc(120px * var(--gmultiplier)), 1px);
 	--g100: round(calc(100px * var(--gmultiplier)), 1px);
+	--g80: round(calc(80px * var(--gmultiplier)), 1px);
 	--g72: round(calc(72px * var(--gmultiplier)), 1px);
 	--g52: round(calc(52px * var(--gmultiplier)), 1px);
 	--g44: round(calc(44px * var(--gmultiplier)), 1px);
@@ -598,7 +599,6 @@ section {
 main {
 	.block {
 		display: grid;
-		grid-row: auto auto auto;
 		grid-template-columns: 1fr auto auto;
 
 		.pulse {
@@ -1702,7 +1702,21 @@ footer.above {
 
 =================================================================================== */
 
-@media (max-width: 1028px) {
+.below-portrait,
+.below-mobile,
+.below-tablet {
+     display: none;
+}
+
+@media (max-width: 1052px) {
+     .no-tablet {
+          display: none !important;
+     }
+
+     .below-tablet {
+          display: block;
+     }
+
      /* ============================================================
           VARIABLES
      ============================================================ */
@@ -1718,6 +1732,7 @@ footer.above {
 
      nav {
          padding: var(--g16);
+         background-color: white;
 
           .content {
                grid-template-columns: repeat(2, 1fr);
@@ -1741,9 +1756,50 @@ footer.above {
                     display: none;
                }
           }
-
-         
      }
+
+     /* ============================================================
+          HERO
+     ============================================================ */
+
+     main {
+          .block {
+               grid-template-columns: auto 1fr;
+               margin-top: var(--g32);
+               .pulse {
+                    grid-column: 1 / 3;
+               }
+
+               h1 {
+                    font-size: 23px;
+                    letter-spacing: -.005em;
+                    max-width: 500px;
+                    grid-column: 1 / 3;
+               }
+               a {
+                    grid-row: auto;
+                    justify-self: start;
+                    align-self: center;
+               }
+          }
+
+          .video-wrap {
+               aspect-ratio: 1920 / 1200;
+          }
+
+          .logos {
+               gap: var(--g80);
+               span {
+                    font-size: 12px;
+               }
+
+               img {
+                    height: 15px;
+               }
+          }
+     }
+
+
 }
 
 /* ===================================================================================
@@ -1753,6 +1809,15 @@ footer.above {
 =================================================================================== */
 
 @media (max-width: 800px) {
+
+     .no-portrait {
+          display: none !important;
+     }
+
+     .below-portrait {
+          display: block;
+     }
+
      /* ============================================================
           VARIABLES
      ============================================================ */
@@ -1769,6 +1834,48 @@ footer.above {
      h2 {
           font-size: 17px;
      }
+
+     /* ============================================================
+          HERO
+     ============================================================ */
+
+     main {
+          .block {
+               grid-template-columns: auto 1fr;
+
+               .pulse {
+                    grid-column: 1 / 3;
+               }
+
+               h1 {
+                    font-size: 23px;
+                    letter-spacing: -.005em;
+                    max-width: 500px;
+                    grid-column: 1 / 3;
+               }
+               a {
+                    grid-row: auto;
+                    justify-self: start;
+                    align-self: center;
+               }
+          }
+
+          .logos {
+               flex-direction: column !important;
+               gap: var(--g24);
+               img {
+                    height: 15px;
+               }
+
+               div {
+                    width: 100%;
+               }
+          }
+     }
+}
+
+.no-mobile {
+     display: none;
 }
 
 /* ===================================================================================
@@ -1778,6 +1885,10 @@ footer.above {
 =================================================================================== */
 
 @media (max-width: 580px) {
+
+     .below-mobile {
+          display: block !important;
+     }
      /* ============================================================
           VARIABLES
      ============================================================ */
@@ -1843,6 +1954,7 @@ footer.above {
 
      nav {
           border-color: hsl(0, 0%, 0%, 0.07) !important;
+          background-color: white !important;
           .content {
                .menu-button {
                     scale: .9;
@@ -1854,4 +1966,42 @@ footer.above {
           }
      }
 
+     main {
+          padding-top: var(--g80);
+          display: grid !important;
+          grid-template-rows: auto auto;
+
+          .block {
+               margin-top: 0;
+               grid-template-columns: auto 1fr;
+
+               h1 {
+                    font-size: 23px;
+                    letter-spacing: -.00em;
+                    max-width: 380px;
+               }
+               a {
+                    grid-row: auto;
+                    justify-self: start;
+                    align-self: center;
+               }
+          }
+
+          .video-wrap {
+               grid-row: 1 / 2;
+               aspect-ratio: 38 / 48;
+               margin: 0 var(--container-h);
+               border-radius: 8px;
+               margin-bottom: var(--g40);
+          }
+
+          .logos {
+               display: none;
+          }
+     }
+
+}
+
+.j-f-s{
+     justify-content: flex-start;
 }
