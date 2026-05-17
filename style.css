@@ -1151,6 +1151,10 @@ main {
 			line-height: 1.4;
 			margin-top: -2px;
 		}
+
+          .arrow-button {
+               margin-bottom: 3px;
+          }
 	}
 
 	.blog-card:hover {
@@ -2530,12 +2534,17 @@ footer.above {
      }
 
      #blog-section {
+
+          #blogTrack {
+               gap: var(--g20);
+          }
+
           .blog-card {
-               width: 265px;
-               min-width: 265px;
+               width: 280px;
+               min-width: 280px;
 
                h3 {
-                    font-size: 12px;
+                    font-size: 12.5px;
                }
           }
      }
@@ -2544,4 +2553,8 @@ footer.above {
 
 .j-f-s{
      justify-content: flex-start;
+}
+
+.a-f-e {
+     align-items: flex-end;
 }
