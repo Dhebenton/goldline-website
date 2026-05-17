@@ -2327,7 +2327,10 @@ footer.above {
 
      #portfolio-section {
           .portfolio-card {
-               p, jetbrains {
+               .jetbrains {
+                    font-size: 11px;
+               }
+               p {
                     font-size: 12px;
                }
           }
