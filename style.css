@@ -493,6 +493,10 @@ nav {
 			background-color: #EDEDED;
 			color: var(--t600);
 		}
+
+          .menu-button {
+               display: none;
+          }
 	}
 
 	.dropdown-wrap {
@@ -1708,6 +1712,55 @@ footer.above {
           --container-v: 112px;
      }
 
+     /* ============================================================
+          NAV
+     ============================================================ */
+
+     nav {
+         padding: var(--g16);
+
+          .content {
+               grid-template-columns: repeat(2, 1fr);
+
+               .menu-button {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 3px;
+
+                    div {
+                         height: 3px;
+                         aspect-ratio: 1;
+                         background-color: black;
+                    }
+               }
+          }
+
+         
+     }
+
+     body:has(.dropdown-wrap:hover),
+     body:has(nav ul li .toggle:hover) {
+          .screen-blur {
+               opacity: 1 !important;
+          }
+
+          nav .dropdown-wrap {
+               pointer-events: all !important;
+               transform: translateY(100%);
+               opacity: 1;
+          }
+
+          .content {
+               border-color: hsl(0, 0%, 0%, 0.07);
+               background-color: white;
+          }
+
+          .pulse,
+          ul {
+               display: noen;
+          }
+     }
+
 }
 
 /* ===================================================================================
@@ -1725,6 +1778,14 @@ footer.above {
           --container-h: 6%;
           --container-v: 108px;
      }
+
+     /* ============================================================
+          TYPOGRAPHY
+     ============================================================ */
+
+     h2 {
+          font-size: 17px;
+     }
 }
 
 /* ===================================================================================
@@ -1741,6 +1802,56 @@ footer.above {
      :root {
           --container-h: 5.5%;
           --container-v: 104px;
+
+          --gmultiplier: .88;
+     }
+
+     /* ============================================================
+          TYPOGRAPHY
+     ============================================================ */
+
+     h2 {
+          font-size: 16px;
+     }
+
+     .tag {
+          font-size: 11px;
+     }
+
+     /* ============================================================
+          GLOBAL COMPONENTS — BUTTON
+     ============================================================ */
+
+     .button-main {
+          font-size: 11.5px;
+          padding: 9px 11px 7px 11px;
+     }
+
+
+     .arrow-button {
+          font-size: 11.5px;
+
+          svg {
+               width: 12px;
+          }
+     }
+
+     /* ============================================================
+          GLOBAL COMPONENTS — PULSE
+     ============================================================ */
+
+     .pulse {
+          .pulse-dot {
+               height: 4px;
+          }
+     }
+
+     /* ============================================================
+          GLOBAL COMPONENTS — SLIDER INDICATOR
+     ============================================================ */
+
+     .slider-indicator {
+        scale: .85;
      }
 
 }
