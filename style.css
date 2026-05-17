@@ -1981,6 +1981,7 @@ footer.above {
 
                h1 {
                     font-size: 23px;
+                    font-variation-settings: 'wght' 700;
                     letter-spacing: -.00em;
                     max-width: 380px;
                }
@@ -1993,7 +1994,7 @@ footer.above {
 
           .video-wrap {
                grid-row: 1 / 2;
-               aspect-ratio: 38 / 48;
+               aspect-ratio: 38 / 43;
                margin: 0 var(--container-h);
                border-radius: 8px;
                margin-bottom: var(--g40);
