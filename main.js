@@ -318,6 +318,8 @@
     const faqs = document.querySelectorAll('.faq');
     if (!faqs.length) return;
 
+    const isMobile = window.innerWidth < 1042;
+
     function setActive(faq) {
       faqs.forEach(f => {
         f.classList.remove('active');
@@ -329,7 +331,10 @@
     }
 
     setActive(faqs[0]);
-    faqs.forEach(faq => faq.addEventListener('mouseenter', () => setActive(faq)));
+
+    faqs.forEach(faq => {
+      faq.addEventListener(isMobile ? 'click' : 'mouseenter', () => setActive(faq));
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -338,7 +343,6 @@
     initFaq();
   }
 })();
-
 
 // ============================================================
 //  FOOTER CLOCK
