@@ -2256,7 +2256,7 @@ footer.above {
                grid-template-columns: auto 1fr;
 
                h1 {
-                    font-size: 23px;
+                    font-size: 22px;
                     font-variation-settings: 'wght' 700;
                     letter-spacing: -.00em;
                     margin-bottom: var(--g8);
@@ -2279,6 +2279,10 @@ footer.above {
 
           .logos {
                display: none;
+          }
+
+          .pulse {
+               font-size: 11px;
           }
      }
 
