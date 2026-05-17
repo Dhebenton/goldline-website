@@ -1726,12 +1726,19 @@ footer.above {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     gap: 3px;
+                    align-self: center;
+                    justify-self: end;
 
                     div {
                          height: 3px;
                          aspect-ratio: 1;
                          background-color: black;
                     }
+               }
+
+               .pulse,
+               ul {
+                    display: none;
                }
           }
 
@@ -1755,10 +1762,7 @@ footer.above {
                background-color: white;
           }
 
-          .pulse,
-          ul {
-               display: none;
-          }
+          
      }
 
 }
