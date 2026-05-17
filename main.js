@@ -93,10 +93,17 @@
       img.style.transform = `translateY(${img._startY}%) rotate(0deg)`;
     });
 
-    h2.innerHTML = h2.textContent
-      .split('')
-      .map(char => char === ' ' ? ' ' : `<span style="opacity:0;filter:blur(3px)">${char}</span>`)
-      .join('');
+    if (isPhilMobile) {
+      h2.innerHTML = h2.textContent
+        .split(' ')
+        .map(word => `<span style="opacity:0;filter:blur(3px)">${word}</span>`)
+        .join(' ');
+    } else {
+      h2.innerHTML = h2.textContent
+        .split('')
+        .map(char => char === ' ' ? ' ' : `<span style="opacity:0;filter:blur(3px)">${char}</span>`)
+        .join('');
+    }
 
     const spans        = h2.querySelectorAll('span');
     const totalItems   = spans.length + 1;
@@ -606,8 +613,8 @@
     // Momentum
     function momentum() {
       const isMobile  = window.innerWidth < 800;
-      const FLICK_VEL = isMobile ? 0.2 : 0.4;
-      const MOM_MULT  = isMobile ? 8 : 18;
+      const FLICK_VEL = isMobile ? 0.5 : 0.4;
+      const MOM_MULT  = isMobile ? 6 : 18;
 
       if (Math.abs(velX) > FLICK_VEL) {
         snapTo(Math.max(0, Math.min(velX < 0 ? current + 1 : current - 1, N - 1)));
