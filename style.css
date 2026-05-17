@@ -1571,6 +1571,9 @@ footer.above {
      ============================================================ */
 
      #principles-section {
+          .tag {
+               padding-top: 3px;
+          }
           .slider {
                .jetbrains {
                     font-size: 10.5px;
@@ -2124,11 +2127,9 @@ footer.above {
           }
 
           .block {
-               padding: var(--g20);
+
                .group {
-                    width: auto !important;
-                    flex-direction: column;
-                    gap: var(--g12) !important;
+                    width: 310px;
                }
 
                .head {
@@ -2136,13 +2137,18 @@ footer.above {
                }
 
                .group > :last-child {
-                    width: 115px;
+                    width: 129px;
+               }
+
+               li p {
+                    font-size: 11px;
                }
 
                li {
-                    font-size: 12.5px;
+                    font-size: 12px;
                }
           }
+
      }
 }
 
@@ -2178,7 +2184,7 @@ footer.above {
      ============================================================ */
 
      h2 {
-          font-size: 16px;
+          font-size: 15px;
      }
 
      .tag {
@@ -2327,9 +2333,13 @@ footer.above {
           SERVICES
      ============================================================ */
 
+     /* ============================================================
+          SERVICES
+     ============================================================ */
+
      #services-section {
           .top {
-               font-size: 13px;
+               font-size: 14px;
                width: auto;
           }
 
@@ -2339,9 +2349,11 @@ footer.above {
           }
 
           .block {
+               padding: var(--g20) 0;
                .group {
-                    width: 320px;
-                    gap: var(--g52);
+                    width: auto !important;
+                    flex-direction: column;
+                    gap: var(--g12) !important;
                }
 
                .head {
@@ -2349,15 +2361,54 @@ footer.above {
                }
 
                .group > :last-child {
-                    width: 129px;
+                    width: auto;
                }
 
-               ul li p {
-                    font-size: 11.5px;
+               ul {
+                    width: 122px;
                }
 
                li {
-                    font-size: 12px;
+                    font-size: 12.5px;
+               }
+          }
+     }
+
+     /* ============================================================
+     PRINCIPLES
+     ============================================================ */
+
+     #principles-section {
+          .slider {
+               .jetbrains {
+                    font-size: 10px;
+               }
+
+               .card.group {
+                    p {
+                         font-size: 12px;
+                         letter-spacing: -.005em;
+                    }
+               }
+
+               .card.main {
+                    height: 250px;
+                    min-width: 230px;
+
+                    h4 {
+                         font-size: 14px;
+                    }
+
+                    p {
+                         font-size: 10px;
+                         br {
+                              display: none;
+                         }
+                    }
+               }
+
+               .card.num {
+                    min-width: 250px !important;
                }
           }
      }

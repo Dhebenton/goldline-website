@@ -572,12 +572,13 @@
 
     track.addEventListener('touchmove', e => {
       if (!dragging) return;
+      e.preventDefault();
       const t = e.touches[0], now = performance.now();
       velX  = (t.clientX - lastX) / (now - lastT + 1);
       lastX = t.clientX; lastT = now;
       applyOffset(startOff - (t.clientX - startX), false);
       updateDotsFromOffset();
-    }, { passive: true });
+    }, { passive: false });
 
     track.addEventListener('touchend', () => { dragging = false; momentum(); });
 
