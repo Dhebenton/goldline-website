@@ -1,0 +1,110 @@
+/* ============================================================
+   BLOG PAGE
+============================================================ */
+
+#latest-articles-wrap {
+     margin-top: var(--g52);
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+
+     h1 {
+          margin-bottom: var(--g20);
+     }
+
+     .tag {
+          justify-self: end;
+          align-self: center;
+          margin-bottom: var(--g20);
+     }
+
+     .blog-card {
+          display: grid;
+          grid-template-columns: 75px 1fr;
+          color: var(--t800);
+
+          .img-w {
+               grid-column: 1 / 3;
+               margin-bottom: var(--g12);
+          }
+
+          .jetbrains,
+          .read {
+               font-size: 12.5px;
+               line-height: 1.2;
+               font-variation-settings: 'wght' 550;
+          }
+
+          .jetbrains {
+               color: var(--t200);
+               align-self: end;
+               margin-bottom: var(--g4);
+          }
+
+          .read {
+               align-self: start;
+               color: var(--t600);
+          }
+
+          h2 {
+               font-size: 14px;
+               line-height: 1.3;
+               grid-column: 2 / 3;
+               justify-self: end;
+               grid-row: 2 / 4;
+          }
+     }
+}
+
+/* ============================================================
+   ARCHIVE
+============================================================ */
+
+.archive-list {
+     .archive-block {
+          display: grid;
+          grid-template-columns: 85px 1fr 75px;
+          gap: var(--g52);
+          align-items: center;
+          position: relative;
+          overflow: visible;
+          padding: var(--g20) 0;
+          border-bottom: 1px solid #E6E6E6;
+
+          .jetbrains {
+               font-size: 12.5px;
+               font-variation-settings: 'wght' 550;
+               color: var(--t100);
+          }
+
+          p {
+               font-size: 12.5px;
+               font-variation-settings: 'wght' 500;
+               color: var(--t300);
+          }
+
+          h3 {
+               font-size: 14px;
+               font-variation-settings: 'wght' 600;
+               color: var(--t700);
+               line-height: 1.3;
+          }
+     }
+
+     .archive-block img {
+          display: none;
+     }
+
+     .archive-block:hover {
+         p, h3 {
+          transform: translateX(var(--g16));
+         }
+     }
+
+     a.archive-block {
+          width: 100%;
+     }
+
+     .archive-block{
+          position: relative;
+     }
+}
