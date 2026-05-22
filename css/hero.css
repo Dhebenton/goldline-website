@@ -40,6 +40,11 @@
           aspect-ratio: 1920 / 710;
           overflow: hidden;
           margin-bottom: var(--g52);
+
+          video {
+               width: 100%;
+               height: 100%;
+          }
      }
 
      .logos-wrap {
