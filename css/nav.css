@@ -261,6 +261,7 @@ body:has(.toggle:hover) {
           border-color: hsl(0, 0%, 0%, .06);
           .logo {
                height: 13px;
+               margin: 2px;
           }
 
           .content {
