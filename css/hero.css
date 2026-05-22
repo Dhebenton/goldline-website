@@ -185,9 +185,10 @@
                }
 
                h1 {
-                    font-size: 22px;
+                    font-size: 21px;
                     max-width: 400px;
-                    line-height: 1.25;
+                    line-height: 1.2;
+                    letter-spacing: -.005em;
                }
           }
 
