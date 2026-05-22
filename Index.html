@@ -198,7 +198,16 @@
           <!-- Principles -->
 
           <section id="phillosophy-scroll" class="container">
-               <span class="tag">[005 - Principles]</span>
+               <span class="tag">[006 - Principles]</span>
+          </section>
+
+
+
+
+          <!-- Pricing -->
+
+          <section id="phillosophy-scroll" class="container">
+               <span class="tag">[007 - Pricing]</span>
           </section>
 
 
@@ -290,16 +299,77 @@
 
 
 
+          <!-- Pricing -->
+
+          <section id="phillosophy-scroll" class="container">
+               <span class="tag">[008 - Articles]</span>
+          </section>
+
+
+
+
+          <!-- Pricing -->
+
+          <section id="phillosophy-scroll" class="container">
+               <span class="tag">[009 - CTA]</span>
+          </section>
+
+
+
+
+          <!-- Pricing -->
+
+          <section id="phillosophy-scroll" class="container">
+               <span class="tag">[009 - CTA]</span>
+          </section>
+
+
+
+
           <!-- CHATBOT -->
 
-          <div id="chatbot-container" class="f-r j-c">
-             <div id="chatWidgetOrb" class="chat-orb f-r j-c">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
-                         <g class="inner-ring"></g>
-                         <g class="outer-ring"></g>
-                    </svg>
+          <div id="chatbot-container" class="f-c unopened ">
+               <div class="tab-wrap tra f-r g12">
+                    <button class="tab active">Chat</button>
+                    <button class="tab">Book A Call</button>
+               </div>
+               <div class="flex tra f-c j-f-e chat-input-wrap">
+                    <video
+                         src="/chatbot/mobina-video.webm"
+                         class="full-span"
+                         autoplay
+                         muted
+                         fetchpriority="high"
+                         loop
+                         playsinline
+                         preload="none"
+                    ></video>
+                    <div class="cover"></div>
+                    <span class="name">Mobina</span>
+                    <p class="placeholder">Hey, Im Mobina, Goldline’s AI assistant. <br>What are you looking for?</p>
+                    <div class="f-r g8">
+                         <button class="prompt">I have a project</button>
+                         <button class="prompt">What do you’se do?</button>
+                         <button class="prompt">Am i a fit?</button>
+                    </div>
+               </div>
+               <div class="input-wrap f-r">
+                    <div id="chatWidgetOrb" class="chat-orb f-r j-c">
+                         <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+                              <g class="inner-ring"></g>
+                              <g class="outer-ring"></g>
+                         </svg>
+                    </div>
+                    <input type="text" class="tra" placeholder="Ask me anything..">
                </div>
           </div>
+
+   <script>
+  document.getElementById('chatbot-container').addEventListener('click', function() {
+    this.classList.toggle('open');
+    this.classList.toggle('unopened');
+  });
+</script>
           <script src="main.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
         <script>
