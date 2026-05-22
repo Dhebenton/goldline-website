@@ -2,6 +2,7 @@ nav {
      position: fixed;
      left: 0;
      width: 100%;
+     top: 0;
      z-index: 100;
      border-bottom: 1px solid transparent;
 
@@ -9,6 +10,7 @@ nav {
           display: grid;
           position: relative;
           z-index: 100;
+          transition-delay: .4s;
           grid-template-columns: repeat(3, 1fr);
           align-items: center !important;
 
@@ -90,8 +92,8 @@ nav {
           display: grid;
           grid-template-columns: repeat(4, calc(25% - calc(48px / 4)));
           padding: var(--g40);
-          transform: translateY(0%);
-          transition-duration: .4s;
+          transform: translateY(-50%);
+          transition-duration: .45s;
           bottom: 1px;
 
           .head {
@@ -124,12 +126,6 @@ nav {
           }
      }
 
-     /*  */
-
-     .content {
-          background-color: white;
-          border-bottom: 1px solid hsl(0, 0%, 0%, .06);
-     }
 }
 
 .backdrop {
@@ -149,6 +145,8 @@ body:has(.toggle:hover) {
 
      .content {
           background-color: white;
+          transition-duration: 0ms !important;
+          transition-delay: .0s;
      }
 
      .dropdown {
