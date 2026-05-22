@@ -39,10 +39,15 @@
      .video-wrap {
           aspect-ratio: 1920 / 710;
           overflow: hidden;
+          position: relative;
           margin-bottom: var(--g52);
 
           video {
-               position: absolute;
+               filter: brightness(0.95);
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
           }
      }
 

@@ -272,6 +272,10 @@ button,
      flex: 1;
 }
 
+.full-span {
+     
+}
+
 .j-s-b {
      justify-content: space-between;
 }
