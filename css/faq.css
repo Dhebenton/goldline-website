@@ -201,7 +201,7 @@
           }
           h2 {
                font-size: 17px;
-               margin-bottom: var(--g20);
+               margin-bottom: var(--g24);
           }
 
           .faq-container {
@@ -211,6 +211,7 @@
                }
 
                .faq {
+                    margin-left: 0;
                     svg {
                          height: 7px;
                     }
