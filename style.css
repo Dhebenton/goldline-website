@@ -272,10 +272,6 @@ button,
      flex: 1;
 }
 
-.full-span {
-     
-}
-
 .j-s-b {
      justify-content: space-between;
 }
@@ -303,6 +299,9 @@ button,
      color: var(--t3);
 }
 
+.mob-no {
+     display: none;
+}
 
 /* ============================================================
    BREAKPOINTS
@@ -380,6 +379,14 @@ button,
 /* 540px */
 
 @media (max-width: 540px) {
+     .mob-below {
+          display: block;
+     }
+
+     .mob-no {
+          display: none;
+     }
+     
 	:root {
 		--container-h: 5.5%;
 		--container-v: 102px;
