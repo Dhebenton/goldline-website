@@ -2,6 +2,7 @@ nav {
      position: fixed;
      left: 0;
      width: 100%;
+     transition: border-color .26s var(--cubic), transform .5s var(--cubic);
      top: 0;
      z-index: 100;
      border-bottom: 1px solid transparent;
