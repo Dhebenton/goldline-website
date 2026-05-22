@@ -1,0 +1,195 @@
+#hero {
+     .block {
+          padding-bottom: var(--g36);
+          display: grid;
+          grid-template-columns: 1fr auto auto;
+          grid-template-rows: repeat(3, auto);
+
+          .pulse {
+               color: var(--t2);
+               font-size: 12.5px;
+               grid-column: 1 / 4;
+          }
+
+          h1 {
+               grid-row: 2 / 4;
+               font-size: 23px;
+               font-variation-settings: 'wght' 660;
+               color: var(--t9);
+               line-height: 1.3;
+               align-self: end;
+          }
+
+          a {
+               grid-row: 3 / 4;
+               align-self: center;
+               margin-bottom: 3px;
+               justify-self: end;
+          }
+
+          .button-main {
+               margin-right: var(--g4);
+          }
+
+          .arrow-button {
+               margin-top: 2px;
+          }
+     }
+
+     .video-wrap {
+          aspect-ratio: 1920 / 710;
+          overflow: hidden;
+          margin-bottom: var(--g52);
+     }
+
+     .logos-wrap {
+
+		span {
+			color: var(--t4);
+			font-size: 12.5px;
+			line-height: 1.6;
+			margin-right: var(--g140);
+			white-space: nowrap;
+		}
+
+		img  { width: auto; }
+		.one   { height: 15px; }
+		.two   { height: 18px; }
+		.three { height: 11px; }
+		.four  { height: 18px; margin-top: -2px; }
+		.five  { height: 16px; }
+	}
+}
+
+.below-tab {
+     display: none;
+}
+
+@media (max-width: 1380px) {
+   #hero {
+          .block {
+               .pulse {
+                    font-size: 12px;
+               }
+
+               h1 {
+                    font-size: 21px;
+               }
+          }
+
+          .video-wrap {
+               aspect-ratio: 1920 / 730;
+          }
+
+          .logos-wrap {
+               span {
+                    font-size: 12px;
+               }
+
+               img  { width: auto; }
+               .one   { height: 14px; }
+               .two   { height: 16px; }
+               .three { height: 10px; margin-bottom: 1px; }
+               .four  { height: 17px; margin-top: -1px; }
+               .five  { height: 14.5px; }
+          }
+     }
+}
+
+@media (max-width: 1052px) {
+    #hero {
+          .block {
+               grid-template-columns: auto 1fr;
+
+               .pulse {
+                    grid-column: 1 / 3;
+                    font-size: 12.5px;
+               }
+
+               h1 {
+                    grid-column: 1 / 3;
+                    font-size: 23px;
+                    grid-row: 2 / 3;
+                    margin-bottom: var(--g8);
+               }
+
+               a {
+                    justify-self: start;
+               }
+          }
+
+          .video-wrap {
+               aspect-ratio: 1920 / 750;
+          }
+
+          .logos-wrap {
+               flex-direction: column;
+               gap: var(--g28);
+               span {
+                    font-size: 12.5px;
+                    margin-right: auto;
+               }
+
+               .flex {
+                    width: 100%;
+               }
+          }
+     }
+} 
+
+@media (max-width: 768px) {
+     #hero {
+          .block {
+               .pulse {
+                    grid-column: 1 / 3;
+                    font-size: 12px;
+               }
+
+               h1 {
+                    font-size: 21px;
+               }
+          }
+
+          .video-wrap {
+               aspect-ratio: 1920 / 790;
+          }
+
+          .logos-wrap {
+               span {
+                    font-size: 12px;
+                    margin-right: auto;
+               }
+          }
+     }
+} 
+
+@media (max-width: 540px) {
+     #hero {
+          padding-top: var(--g80) !important;
+          display: grid;
+          grid-template-rows: auto auto;
+          .block {
+               .pulse {
+                    grid-column: 1 / 3;
+                    font-size: 12px;
+               }
+
+               h1 {
+                    font-size: 21px;
+               }
+          }
+
+          .video-wrap {
+               aspect-ratio: 40 / 50;
+               margin: 0 var(--container-h);
+               border-radius: 8px;
+               grid-row: 1 / 3;
+               margin-bottom: var(--g52);
+          }
+
+          .logos-wrap {
+               display: none;
+          }
+     }
+} 
+

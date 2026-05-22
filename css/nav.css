@@ -2,7 +2,6 @@ nav {
      position: fixed;
      left: 0;
      width: 100%;
-     transition: border-color .26s var(--cubic), transform .5s var(--cubic);
      top: 0;
      z-index: 100;
      border-bottom: 1px solid transparent;
@@ -94,7 +93,7 @@ nav {
           grid-template-columns: repeat(4, calc(25% - calc(48px / 4)));
           padding: var(--g40);
           transform: translateY(-50%);
-          transition-duration: .45s;
+          transition-duration: .6s;
           bottom: 1px;
 
           .head {
@@ -262,14 +261,13 @@ body:has(.toggle:hover) {
           border-color: hsl(0, 0%, 0%, .06);
           .logo {
                height: 13px;
-               margin: 2px;
           }
 
           .content {
                .menu-button {
                     padding: 2px;
                     margin: 0;
-                    scale: 0.91;
+                    scale: 0.93;
                }
           }
      }

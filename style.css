@@ -47,6 +47,7 @@
 	--fill-black: #0A0A0A;
 
 	/* Spacing scale */
+	--g140: round(calc(140px * var(--gmultiplier)), 1px);
 	--g120: round(calc(120px * var(--gmultiplier)), 1px);
 	--g100: round(calc(100px * var(--gmultiplier)), 1px);
 	--g80:  round(calc(80px  * var(--gmultiplier)), 1px);
@@ -108,6 +109,7 @@ button {
 	cursor: pointer;
 }
 
+video,
 img {
 	width: 100%;
 	object-fit: cover;
@@ -251,6 +253,7 @@ button,
 	}
 
 	span {
+          margin-top: 2px;
 		font-variation-settings: 'wght' 550;
 	}
 }
@@ -258,6 +261,42 @@ button,
 @keyframes pulse {
 	0%   { transform: scale(1);   opacity: 0.7; }
 	100% { transform: scale(2.6); opacity: 0;   }
+}
+/*  */
+
+.a-f-s {
+     align-items: flex-start;
+}
+
+.flex {
+     flex: 1;
+}
+
+.j-s-b {
+     justify-content: space-between;
+}
+
+.container-v {
+     padding-top: var(--container-v) !important;
+     padding-bottom: var(--container-v) !important;
+}
+
+.container-h {
+     padding-right: var(--container-h) !important;
+     padding-left: var(--container-h) !important;
+}
+
+.button-main:hover {
+     background-color: #F0F0F0;
+     color: var(--t6);
+}
+
+.button-main {
+     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 6%), 0px 0px 0px 1px rgba(0, 0, 0, 11%);
+     padding: 9px 11px 7px 11px;
+     font-size: 12.5px;
+     font-variation-settings: 'wght' 550;
+     color: var(--t3);
 }
 
 
@@ -281,6 +320,10 @@ button,
 			width: 13px;
 		}
 	}
+
+     .button-main {
+          font-size: 12px;
+     }
 }
 
 /* 1052px */
@@ -290,11 +333,19 @@ button,
 		--container-h: 8%;
 		--container-v: 114px;
 	}
+
+     .no-tab { display: none;}
+     .below-tab {
+          display: block !important;
+     }
 }
 
 /* 768px */
 
 @media (max-width: 768px) {
+     .por-no {
+          display: none;
+     }
 	:root {
 		--container-h: 6%;
 		--container-v: 108px;
@@ -308,6 +359,18 @@ button,
 			width: 12px;
 		}
 	}
+
+     .button-main {
+          font-size: 11.5px;
+     }
+
+     /* Pulse indicator */
+
+.pulse {
+	.pulse-dot {
+		height: 4px;
+	}
+}
 }
 
 /* 540px */
@@ -317,4 +380,12 @@ button,
 		--container-h: 5.5%;
 		--container-v: 102px;
 	}
+
+     .arrow-button {
+		font-size: 11px;
+	}
+
+     .button-main {
+          font-size: 11px;
+     }
 }
