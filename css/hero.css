@@ -192,7 +192,7 @@
           }
 
           .video-wrap {
-               aspect-ratio: 40 / 55;
+               aspect-ratio: 40 / 45;
                margin: 0 var(--container-h);
                border-radius: 8px;
                grid-row: 1 / 3;
