@@ -11,6 +11,7 @@
           <link rel="stylesheet" href="/css/chatbot.css">
           <link rel="stylesheet" href="/css/faq.css">
           <link rel="stylesheet" href="/css/footer.css">
+          <link rel="stylesheet" href="/css/articles.css">
           <!--  -->
      
           <title>Website Design & Growth Strategy for Service Businesses | Goldline</title>
@@ -204,20 +205,11 @@
 
 
 
-          <!-- Pricing -->
-
-          <section id="phillosophy-scroll" class="container">
-               <span class="tag">[007 - Pricing]</span>
-          </section>
-
-
-
-
           <!-- FAQ -->
 
           <section id="faq-section" class="f-r container j-s-b a-f-s">
                <div class="f-c block">
-                    <span class="tag">[008 - FAQ]</span>
+                    <span class="tag">[007 - FAQ]</span>
                     <h2>Questions we get frequently. <br><span class="grey">Still curious, we’re happy to talk</span></h2>
                     <a href="/articles/articles.html" class="arrow-button f-r g8">
                          <span class="jetbrains">Ask Us A Qeustion</span>
@@ -295,6 +287,7 @@
                     </div>
                </div>
           </section>
+          
 
 
 
@@ -302,13 +295,69 @@
           <!-- Pricing -->
 
           <section id="phillosophy-scroll" class="container">
-               <span class="tag">[008 - Articles]</span>
+               <span class="tag">[008 - Pricing]</span>
           </section>
 
 
 
 
-          <!-- Pricing -->
+          <!-- ARTICLES -->
+
+          <section id="blog-section" class="container f-c g36">
+               <div class="f-r j-s-b a-f-e">
+                    <div class="f-c g12">
+                         <span class="tag">[008 - Articles]</span>
+                         <h2>Articles worth reading</h2>
+                    </div>
+                    <a href="/articles/articles.html" class="arrow-button f-r g8">
+                         <span class="jetbrains">View All</span>
+                         <svg viewBox="0 0 13 7" fill="currentColor"><use href="#arrow-right"></use></svg>
+                    </a>
+               </div>
+               <div class="full-width f-r" id="blogTrack">
+                    <div class="blog-card-wrap">
+                         <a href="" class="f-c g8 blog-card">
+                              <div class="img-w">
+                                   <img class="tra" decoding="async" loading="lazy" src="/assets/articles/blog-cover1.avif" />
+                              </div>
+                              <h3>Reputation once travelled through people, now judgement forms independently</h3>
+                         </a>
+                    </div>
+
+                    <div class="blog-card-wrap">
+                         <a href="" class="f-c g8 blog-card">
+                              <div class="img-w">
+                                   <img class="tra" decoding="async" loading="lazy" src="/assets/articles/blog-cover1.avif" />
+                              </div>
+                              <h3>Reputation once travelled through people, now judgement forms independently</h3>
+                         </a>
+                    </div>
+
+                    <div class="blog-card-wrap">
+                         <a href="" class="f-c g8 blog-card">
+                              <div class="img-w">
+                                   <img class="tra" decoding="async" loading="lazy" src="/assets/articles/blog-cover1.avif" />
+                              </div>
+                              <h3>Reputation once travelled through people, now judgement forms independently</h3>
+                         </a>
+                    </div>
+                    
+                    <div class="blog-card-wrap">
+                         <a href="" class="f-c g8 blog-card">
+                              <div class="img-w">
+                                   <img class="tra" decoding="async" loading="lazy" src="/assets/articles/blog-cover1.avif" />
+                              </div>
+                              <h3>Reputation once travelled through people, now judgement forms independently</h3>
+                         </a>
+                    </div>
+               </div>
+               <div class="slider-indicator tra f-r g4"></div>
+          </section>
+
+
+
+
+          <!-- CTA -->
 
           <section id="phillosophy-scroll" class="container">
                <span class="tag">[009 - CTA]</span>
@@ -317,244 +366,15 @@
 
 
 
-          <!-- Pricing -->
+          <!-- FOOTER -->
 
           <section id="phillosophy-scroll" class="container">
-               <span class="tag">[009 - CTA]</span>
+               <span class="tag">[009 - FOOTER]</span>
           </section>
 
 
 
 
-          <!-- CHATBOT -->
-
-          <div id="chatbot-container" class="f-c unopened ">
-               <div class="tab-wrap tra f-r g12">
-                    <button class="tab active">Chat</button>
-                    <button class="tab">Book A Call</button>
-               </div>
-               <div class="flex tra f-c j-f-e chat-input-wrap">
-                    <video
-                         src="/chatbot/mobina-video.webm"
-                         class="full-span"
-                         autoplay
-                         muted
-                         fetchpriority="high"
-                         loop
-                         playsinline
-                         preload="none"
-                    ></video>
-                    <div class="cover"></div>
-                    <span class="name">Mobina</span>
-                    <p class="placeholder">Hey, Im Mobina, Goldline’s AI assistant. <br>What are you looking for?</p>
-                    <div class="f-r g8">
-                         <button class="prompt">I have a project</button>
-                         <button class="prompt">What do you’se do?</button>
-                         <button class="prompt">Am i a fit?</button>
-                    </div>
-               </div>
-               <div class="input-wrap f-r">
-                    <div id="chatWidgetOrb" class="chat-orb f-r j-c">
-                         <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
-                              <g class="inner-ring"></g>
-                              <g class="outer-ring"></g>
-                         </svg>
-                    </div>
-                    <input type="text" class="tra" placeholder="Ask me anything..">
-               </div>
-          </div>
-
-   <script>
-  document.getElementById('chatbot-container').addEventListener('click', function() {
-    this.classList.toggle('open');
-    this.classList.toggle('unopened');
-  });
-</script>
           <script src="main.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-        <script>
-          const orb = document.querySelector("#chatWidgetOrb");
-const innerRing = orb.querySelector(".inner-ring");
-const outerRing = orb.querySelector(".outer-ring");
-
-const innerDots = Array.from({ length: 4 }, (_, i) => {
-  const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
-  return {
-    cx: 20 + Math.cos(angle) * 5,
-    cy: 20 + Math.sin(angle) * 5
-  };
-});
-
-const outerDots = Array.from({ length: 10 }, (_, i) => {
-  const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
-  return {
-    cx: 20 + Math.cos(angle) * 12,
-    cy: 20 + Math.sin(angle) * 12
-  };
-});
-
-innerRing.innerHTML = innerDots
-  .map(dot => `<circle cx="${dot.cx}" cy="${dot.cy}" r="1.75"></circle>`)
-  .join("");
-
-outerRing.innerHTML = outerDots
-  .map(dot => `<circle cx="${dot.cx}" cy="${dot.cy}" r="1.75"></circle>`)
-  .join("");
-
-const innerCircles = innerRing.querySelectorAll("circle");
-const outerCircles = outerRing.querySelectorAll("circle");
-
-const innerRadius = {
-  min: 4.5,
-  max: 5.5
-};
-
-const outerRadius = {
-  min: 10.8,
-  max: 13.2
-};
-
-let breathingTimeline;
-let activeTimeline;
-let isActive = false;
-
-function startBreathing() {
-  breathingTimeline = gsap.timeline({
-    repeat: -1,
-    yoyo: true
-  });
-
-  innerCircles.forEach((circle, i) => {
-    const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
-
-    breathingTimeline.fromTo(
-      circle,
-      {
-        attr: {
-          cx: 20 + Math.cos(angle) * innerRadius.min,
-          cy: 20 + Math.sin(angle) * innerRadius.min
-        }
-      },
-      {
-        attr: {
-          cx: 20 + Math.cos(angle) * innerRadius.max,
-          cy: 20 + Math.sin(angle) * innerRadius.max
-        },
-        duration: 2,
-        ease: "sine.inOut"
-      },
-      0
-    );
-  });
-
-  outerCircles.forEach((circle, i) => {
-    const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
-
-    breathingTimeline.fromTo(
-      circle,
-      {
-        attr: {
-          cx: 20 + Math.cos(angle) * outerRadius.min,
-          cy: 20 + Math.sin(angle) * outerRadius.min
-        }
-      },
-      {
-        attr: {
-          cx: 20 + Math.cos(angle) * outerRadius.max,
-          cy: 20 + Math.sin(angle) * outerRadius.max
-        },
-        duration: 2,
-        ease: "sine.inOut"
-      },
-      0
-    );
-  });
-}
-
-function startTransitionAnimation() {
-  activeTimeline = gsap.timeline();
-
-  gsap.fromTo(
-    innerRing,
-    { rotation: 0 },
-    {
-      rotation: 180,
-      svgOrigin: "20 20",
-      duration: 0.5,
-      ease: "power2.inOut"
-    }
-  );
-
-  gsap.fromTo(
-    outerRing,
-    { rotation: 0 },
-    {
-      rotation: -72,
-      svgOrigin: "20 20",
-      duration: 0.5,
-      ease: "power2.inOut"
-    }
-  );
-
-  innerCircles.forEach((circle, i) => {
-    activeTimeline
-      .to(circle, {
-        opacity: 0.3,
-        duration: 0.3,
-        ease: "sine.inOut"
-      }, i * 0.15)
-      .to(circle, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "sine.inOut"
-      }, i * 0.15 + 0.3);
-  });
-
-  outerCircles.forEach((circle, i) => {
-    const reverseIndex = outerCircles.length - 1 - i;
-
-    activeTimeline
-      .to(circle, {
-        opacity: 0.3,
-        duration: 0.3,
-        ease: "sine.inOut"
-      }, reverseIndex * 0.09)
-      .to(circle, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "sine.inOut"
-      }, reverseIndex * 0.09 + 0.3);
-  });
-}
-
-function resetOrb() {
-  gsap.killTweensOf([innerRing, outerRing, innerCircles, outerCircles]);
-
-  gsap.set([innerRing, outerRing], {
-    rotation: 0,
-    svgOrigin: "20 20"
-  });
-
-  gsap.set([...innerCircles, ...outerCircles], {
-    opacity: 1
-  });
-
-  startBreathing();
-}
-
-startBreathing();
-
-orb.addEventListener("click", () => {
-  isActive = !isActive;
-
-  if (isActive) {
-    breathingTimeline.kill();
-    startTransitionAnimation();
-  } else {
-    activeTimeline?.kill();
-    resetOrb();
-  }
-});
-        </script>
      </body>
 </html>

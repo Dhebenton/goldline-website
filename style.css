@@ -218,7 +218,7 @@ button,
 		border-radius: 0.001px;
 
 		img {
-			opacity: .84;
+			opacity: .89;
 		}
 	}
 }
@@ -322,6 +322,70 @@ h2 {
      color: var(--t1);
 }
 
+/*  */ 
+
+.g36 {
+     gap: var(--g36);
+}
+
+.g4 {
+     gap: var(--g4);
+}
+
+/* ============================================================
+   GLOBAL COMPONENTS — SLIDER INDICATOR
+============================================================ */
+
+@keyframes fillProgress {
+	from { width: 0%; }
+	to   { width: 100%; }
+}
+
+.slider-indicator {
+	background-color: #F2F2F2;
+	padding: 5px;
+	border-radius: 50px;
+	transition-duration: .5s;
+	margin: calc(var(--g8) * -1) auto;
+
+	div {
+		background-color: #BDBDBD;
+		transition: inherit;
+		width: 4px;
+		position: relative;
+		cursor: pointer;
+		height: 4px;
+		border-radius: 50px;
+	}
+
+	div.active {
+		width: 20px;
+	}
+
+	div::before {
+		content: "";
+		display: block;
+		background-color: #111;
+		border-radius: 50px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.slider-indicator div.active::before {
+	animation: fillProgress var(--autoplay-ms, 3000ms) ease forwards;
+}
+
+.slider-indicator.is-paused div.active::before {
+	animation-play-state: paused;
+}
+
+.slider-indicator div.past::before {
+	width: 100%;
+}
+
 /* ============================================================
    BREAKPOINTS
 ============================================================ */
@@ -354,6 +418,10 @@ h2 {
      .tag {
           font-size: 11px;
      }
+
+     .slider-indicator {
+          scale: .9;
+     }
 }
 
 /* 1052px */
@@ -379,7 +447,7 @@ h2 {
 	:root {
 		--container-h: 6%;
 		--container-v: 108px;
-		--gmultiplier: .8;
+		--gmultiplier: .83;
 	}
 
 	.arrow-button {
@@ -404,6 +472,10 @@ h2 {
 
      h2 {
           font-size: 16px;
+     }
+
+     .slider-indicator {
+          scale: .8;
      }
 }
 
