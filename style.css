@@ -150,11 +150,12 @@ button,
 	padding-right: var(--container-h) !important;
 }
 
+.cover,
 .full-span {
 	width: 100%;
 	height: 100%;
 	left: 0;
-	right: 0;
+	top: 0;
 }
 
 .f-r {
@@ -276,6 +277,10 @@ button,
 
 .container {
      padding: var(--container);
+}
+
+.g52 {
+     gap: var(--g52);
 }
 
 .j-s-b {

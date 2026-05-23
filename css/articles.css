@@ -1,4 +1,5 @@
 #blog-section {
+     overflow: hidden;
      .blog-card {
           width: 320px;
           margin-right: var(--g24);
