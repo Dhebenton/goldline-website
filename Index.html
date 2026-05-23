@@ -410,14 +410,14 @@
 
           <!-- CHATBOT -->
 
-          <div id="chatbot-container" class="closed f-c"> 
+          <div id="chatbot-container" class="open f-c"> 
                <div class="background"></div>
-               <!-- <div class="tab-wrap f-r g16">
+               <div class="tab-wrap f-r g16">
                     <button class="tab active">Chat</button>
                     <button class="tab">Book A Call</button>
                </div>
-               <div class="flex f-c chat-wrap">
-                    <div class="video-wrap">
+               <div class="flex f-c j-f-e chat-wrap">
+                    <!-- <div class="video-wrap">
                          <video
                               src="/chatbot/mobina-video.webm"
                               class="full-span"
@@ -430,7 +430,25 @@
                          ></video>
                          <div class="cover full-span"></div>
                     </div>
-               </div> -->
+                    <span class="name">Mobina</span>
+                    <p class="greet">Hey, Im Mobina, Goldline’s AI assistant. <br>What are you looking for?</p>
+                    <div class="prompt-wrap f-r g8">
+                         <button class="prompt">I have a project</button>
+                         <button class="prompt">What do you’se do?</button>
+                         <button class="prompt">Am i a fit?</button>
+                    </div> -->
+                    <div class="message-container f-c g24 flex">
+                         <div class="message-block user f-c g8">
+                              <span class="who">You</span>
+                              <p>What do you offer.</p>
+                         </div>
+
+                         <div class="message-block mobina f-c g8">
+                              <span class="who">Mobina</span>
+                              <p>Three things, usually at the same time, Product Design interfaces, systems, flows, and usability. Brand & Marketing how a company shows up, launches, and converts.</p>
+                         </div>
+                    </div>
+               </div>
                <div class="input-container f-r">
                     <div id="chatWidgetOrb" class="chat-orb f-r j-c">
                          <svg width="22" height="22" viewBox="0 0 40 40" fill="currentColor">
@@ -438,7 +456,7 @@
                               <g class="outer-ring"></g>
                          </svg>
                     </div>
-                    <!-- <input type="text" placeholder="Ask me anything..."> -->
+                    <input type="text" placeholder="Ask me anything...">
                </div>
           </div>
 
@@ -451,116 +469,238 @@
           <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script>
 const container = document.getElementById('chatbot-container');
-const orb = document.querySelector("#chatWidgetOrb");
-const innerRing = orb.querySelector(".inner-ring");
-const outerRing = orb.querySelector(".outer-ring");
+const orb = document.querySelector('#chatWidgetOrb');
 
-// --- Build dots ---
-const innerDots = Array.from({ length: 4 }, (_, i) => {
-  const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
-  return { cx: 20 + Math.cos(angle) * 5, cy: 20 + Math.sin(angle) * 5 };
-});
+const innerRing = orb.querySelector('.inner-ring');
+const outerRing = orb.querySelector('.outer-ring');
 
-const outerDots = Array.from({ length: 10 }, (_, i) => {
-  const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
-  return { cx: 20 + Math.cos(angle) * 12, cy: 20 + Math.sin(angle) * 12 };
-});
-
-innerRing.innerHTML = innerDots
-  .map(d => `<circle cx="${d.cx}" cy="${d.cy}" r="1.75"></circle>`)
-  .join("");
-
-outerRing.innerHTML = outerDots
-  .map(d => `<circle cx="${d.cx}" cy="${d.cy}" r="1.75"></circle>`)
-  .join("");
-
-const innerCircles = [...innerRing.querySelectorAll("circle")];
-const outerCircles = [...outerRing.querySelectorAll("circle")];
-
-// --- Radius ranges ---
-const innerRadius = { min: 4.5, max: 5.5 };
-const outerRadius = { min: 10.8, max: 13.2 };
-
-// --- State ---
 let isOpen = false;
 let breathingTl = null;
 let transitionTl = null;
 
-// --- Helpers ---
+/* build dots */
+
+const innerDots = Array.from({ length: 4 }, (_, i) => {
+     const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
+
+     return {
+          cx: 20 + Math.cos(angle) * 5,
+          cy: 20 + Math.sin(angle) * 5
+     };
+});
+
+const outerDots = Array.from({ length: 10 }, (_, i) => {
+     const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
+
+     return {
+          cx: 20 + Math.cos(angle) * 12,
+          cy: 20 + Math.sin(angle) * 12
+     };
+});
+
+innerRing.innerHTML = innerDots
+     .map(dot => `<circle cx="${dot.cx}" cy="${dot.cy}" r="1.75"></circle>`)
+     .join('');
+
+outerRing.innerHTML = outerDots
+     .map(dot => `<circle cx="${dot.cx}" cy="${dot.cy}" r="1.75"></circle>`)
+     .join('');
+
+const innerCircles = Array.from(innerRing.querySelectorAll('circle'));
+const outerCircles = Array.from(outerRing.querySelectorAll('circle'));
+
+/* settings */
+
+const innerRadius = {
+     min: 4.5,
+     max: 5.5
+};
+
+const outerRadius = {
+     min: 10.8,
+     max: 13.2
+};
+
+/* helpers */
+
 function killAll() {
-  breathingTl?.kill();
-  transitionTl?.kill();
-  gsap.killTweensOf([innerRing, outerRing, ...innerCircles, ...outerCircles]);
+     breathingTl?.kill();
+     transitionTl?.kill();
+
+     gsap.killTweensOf([
+          innerRing,
+          outerRing,
+          ...innerCircles,
+          ...outerCircles
+     ]);
 }
 
 function buildBreathingTl() {
-  const tl = gsap.timeline({ repeat: -1, yoyo: true });
+     const tl = gsap.timeline({
+          repeat: -1,
+          yoyo: true
+     });
 
-  innerCircles.forEach((circle, i) => {
-    const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
-    tl.fromTo(circle,
-      { attr: { cx: 20 + Math.cos(angle) * innerRadius.min, cy: 20 + Math.sin(angle) * innerRadius.min } },
-      { attr: { cx: 20 + Math.cos(angle) * innerRadius.max, cy: 20 + Math.sin(angle) * innerRadius.max }, duration: 2, ease: "sine.inOut" },
-      0
-    );
-  });
+     innerCircles.forEach((circle, i) => {
+          const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
 
-  outerCircles.forEach((circle, i) => {
-    const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
-    tl.fromTo(circle,
-      { attr: { cx: 20 + Math.cos(angle) * outerRadius.min, cy: 20 + Math.sin(angle) * outerRadius.min } },
-      { attr: { cx: 20 + Math.cos(angle) * outerRadius.max, cy: 20 + Math.sin(angle) * outerRadius.max }, duration: 2, ease: "sine.inOut" },
-      0
-    );
-  });
+          tl.fromTo(circle,
+               {
+                    attr: {
+                         cx: 20 + Math.cos(angle) * innerRadius.min,
+                         cy: 20 + Math.sin(angle) * innerRadius.min
+                    }
+               },
+               {
+                    attr: {
+                         cx: 20 + Math.cos(angle) * innerRadius.max,
+                         cy: 20 + Math.sin(angle) * innerRadius.max
+                    },
+                    duration: 2,
+                    ease: 'sine.inOut'
+               },
+               0
+          );
+     });
 
-  return tl;
+     outerCircles.forEach((circle, i) => {
+          const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
+
+          tl.fromTo(circle,
+               {
+                    attr: {
+                         cx: 20 + Math.cos(angle) * outerRadius.min,
+                         cy: 20 + Math.sin(angle) * outerRadius.min
+                    }
+               },
+               {
+                    attr: {
+                         cx: 20 + Math.cos(angle) * outerRadius.max,
+                         cy: 20 + Math.sin(angle) * outerRadius.max
+                    },
+                    duration: 2,
+                    ease: 'sine.inOut'
+               },
+               0
+          );
+     });
+
+     return tl;
 }
 
 function startBreathing() {
-  breathingTl = buildBreathingTl();
+     breathingTl = buildBreathingTl();
 }
 
 function animateDotsOut(circles, stagger) {
-  const tl = gsap.timeline();
-  circles.forEach((circle, i) => {
-    tl.to(circle, { opacity: 0.3, duration: 0.3, ease: "sine.inOut" }, i * stagger)
-      .to(circle, { opacity: 1,   duration: 0.3, ease: "sine.inOut" }, i * stagger + 0.3);
-  });
-  return tl;
+     const tl = gsap.timeline();
+
+     circles.forEach((circle, i) => {
+          tl.to(circle, {
+               opacity: 0.3,
+               duration: 0.3,
+               ease: 'sine.inOut'
+          }, i * stagger);
+
+          tl.to(circle, {
+               opacity: 1,
+               duration: 0.3,
+               ease: 'sine.inOut'
+          }, i * stagger + 0.3);
+     });
+
+     return tl;
 }
 
 function activateOrb() {
-  killAll();
-  transitionTl = gsap.timeline();
-  transitionTl
-    .fromTo(innerRing, { rotation: 0 }, { rotation: 180, svgOrigin: "20 20", duration: 0.5, ease: "power2.inOut" }, 0)
-    .fromTo(outerRing, { rotation: 0 }, { rotation: -72, svgOrigin: "20 20", duration: 0.5, ease: "power2.inOut" }, 0);
-  animateDotsOut(innerCircles, 0.15);
-  animateDotsOut([...outerCircles].reverse(), 0.09);
+     killAll();
+
+     transitionTl = gsap.timeline();
+
+     transitionTl
+          .fromTo(innerRing,
+               { rotation: 0 },
+               {
+                    rotation: 180,
+                    svgOrigin: '20 20',
+                    duration: 0.5,
+                    ease: 'power2.inOut'
+               },
+               0
+          )
+          .fromTo(outerRing,
+               { rotation: 0 },
+               {
+                    rotation: -72,
+                    svgOrigin: '20 20',
+                    duration: 0.5,
+                    ease: 'power2.inOut'
+               },
+               0
+          );
+
+     animateDotsOut(innerCircles, 0.15);
+     animateDotsOut([...outerCircles].reverse(), 0.09);
 }
 
 function deactivateOrb() {
-  killAll();
-  transitionTl = gsap.timeline({ onComplete: startBreathing });
-  transitionTl
-    .to(innerRing, { rotation: 0, svgOrigin: "20 20", duration: 0.5, ease: "power2.inOut" }, 0)
-    .to(outerRing, { rotation: 0, svgOrigin: "20 20", duration: 0.5, ease: "power2.inOut" }, 0);
-  animateDotsOut([...innerCircles].reverse(), 0.15);
-  animateDotsOut(outerCircles, 0.09);
+     killAll();
+
+     transitionTl = gsap.timeline({
+          onComplete: startBreathing
+     });
+
+     transitionTl
+          .to(innerRing, {
+               rotation: 0,
+               svgOrigin: '20 20',
+               duration: 0.5,
+               ease: 'power2.inOut'
+          }, 0)
+          .to(outerRing, {
+               rotation: 0,
+               svgOrigin: '20 20',
+               duration: 0.5,
+               ease: 'power2.inOut'
+          }, 0);
+
+     animateDotsOut([...innerCircles].reverse(), 0.15);
+     animateDotsOut(outerCircles, 0.09);
 }
 
-// --- Init ---
+/* open / close */
+
+function openWidget() {
+     isOpen = true;
+
+     container.classList.remove('closing');
+     container.classList.add('open');
+
+     activateOrb();
+}
+
+function closeWidget() {
+     isOpen = false;
+
+     container.classList.add('closing');
+
+     deactivateOrb();
+
+     requestAnimationFrame(() => {
+          container.classList.remove('open');
+     });
+
+     setTimeout(() => {
+          container.classList.remove('closing');
+     }, 580);
+}
+
+/* init */
+
 startBreathing();
 
-// Orb handles everything — animation + container open/close
-orb.addEventListener("click", () => {
-  isOpen = !isOpen;
-
-  container.classList.toggle('open', isOpen);
-  container.classList.toggle('closed', !isOpen);
-
-  isOpen ? activateOrb() : deactivateOrb();
+orb.addEventListener('click', () => {
+     isOpen ? closeWidget() : openWidget();
 });
 </script>
      </body>

@@ -133,6 +133,8 @@ ul {
    TRANSITIONS
 ============================================================ */
 
+input,
+input::placeholder,
 a,
 a::before,
 button,
