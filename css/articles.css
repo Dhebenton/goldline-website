@@ -66,4 +66,7 @@
 } 
 
 @media (max-width: 540px) {
+     #blog-section {
+          gap: var(--g32);
+     }
 } 
