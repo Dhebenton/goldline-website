@@ -194,11 +194,12 @@ button,
 
 .arrow-button {
 	color: var(--t2);
-	font-size: 12.5px;
+	font-size: 12px;
 	font-variation-settings: 'wght' 550;
 
 	svg {
-		width: 14px;
+		width: 13px;
+          margin-bottom: 2px;
 		transition: inherit;
 	}
 }
@@ -303,9 +304,9 @@ button,
 }
 
 .button-main {
-     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 6%), 0px 0px 0px 1px rgba(0, 0, 0, 11%);
+     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 5%), 0px 0px 0px 1px rgba(0, 0, 0, 10%);
      padding: 9px 11px 7px 11px;
-     font-size: 12.5px;
+     font-size: 12px;
      font-variation-settings: 'wght' 550;
      color: var(--t3);
 }
@@ -405,15 +406,16 @@ h2 {
 	}
 
 	.arrow-button {
-		font-size: 12px;
+		font-size: 11.5px;
 
 		svg {
-			width: 13px;
+			width: 12px;
+               margin-bottom: 1px;
 		}
 	}
 
      .button-main {
-          font-size: 12px;
+          font-size: 11.5px;
      }
 
      h2 {
@@ -456,7 +458,7 @@ h2 {
 	}
 
 	.arrow-button {
-		font-size: 11.5px;
+		font-size: 11px;
 
 		svg {
 			width: 12px;
@@ -464,7 +466,7 @@ h2 {
 	}
 
      .button-main {
-          font-size: 11.5px;
+          font-size: 11px;
      }
 
      /* Pulse indicator */
@@ -501,10 +503,10 @@ h2 {
 	}
 
      .arrow-button {
-		font-size: 11px;
+		font-size: 10.5px;
 	}
 
      .button-main {
-          font-size: 11px;
+          font-size: 10.5px;
      }
 }
