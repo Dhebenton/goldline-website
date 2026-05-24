@@ -535,4 +535,8 @@ input {
           font-size: 10.5px;
           padding: 8px 10px 6px 10px;
      }
+
+     h1 {
+          line-height: 1.4 !important;
+     }
 }
