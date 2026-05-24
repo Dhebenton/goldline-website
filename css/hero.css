@@ -184,10 +184,9 @@
                     font-size: 11px;
                }
 
-               h1 span {
+               h1 {
                     font-size: 20px;
                     max-width: 400px;
-                    line-height: 1.4 !important; 
                     letter-spacing: -.005em;
                }
           }
@@ -227,6 +226,10 @@
           .logos-wrap {
                display: none;
           }
+     }
+
+     h1 {
+          line-height: 1.4 !important;
      }
 
 } 
