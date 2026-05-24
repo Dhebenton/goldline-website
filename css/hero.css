@@ -230,9 +230,10 @@
      }
 
      h1 {
-          line-height: 1.4;
+          grid-row: 2 / 3;
+          align-self: start;
+          line-height: 1.4 !important;
           margin: 0;
-          padding: 0;
      }
 } 
 
