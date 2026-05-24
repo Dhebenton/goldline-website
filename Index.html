@@ -11,6 +11,7 @@
           <link rel="stylesheet" href="/css/chatbot.css">
           <link rel="stylesheet" href="/css/faq.css">
           <link rel="stylesheet" href="/css/cta.css">
+          <link rel="stylesheet" href="/css/about.css">
           <link rel="stylesheet" href="/css/portfolio.css">
           <link rel="stylesheet" href="/css/footer.css">
           <link rel="stylesheet" href="/css/articles.css">
@@ -173,8 +174,13 @@
 
           <!-- ABOUT -->
 
-          <section id="phillosophy-scroll" class="container">
-               <span class="tag">[002 - About Us]</span>
+          <section id="about-section" class="f-r container j-s-b a-f-s">
+               <span class="tag">[002 - About Goldline]</span>
+               <div class="about-us-text-wrap">
+                    <p class="first tra">Many businesses still present themselves in ways that no <br>longer reflect modern expectations. <span class="grey">Your audience expects <br>stronger presentation before making contact.</span></p>
+                    <p class="second tra">We help those businesses adapt through clearer positioning <br>and stronger presence. <span class="grey">Creating experiences that feel more <br>established, trustworthy, and aligned.</span></p>
+                    <img src="/assets/about-us.avif" class="tra" loading="lazy" decoding="async" alt="">
+               </div>
           </section>
 
 
@@ -410,14 +416,15 @@
 
           <!-- CHATBOT -->
 
-          <div id="chatbot-container" class="open f-c"> 
+          <div id="chatbot-container" class="closed f-c"> 
                <div class="background"></div>
                <div class="tab-wrap f-r g16">
                     <button class="tab active">Chat</button>
                     <button class="tab">Book A Call</button>
                </div>
                <div class="flex f-c j-f-e chat-wrap">
-                    <!-- <div class="video-wrap">
+                    <div class="intro-wrap flex f-c">
+                    <div class="video-wrap">
                          <video
                               src="/chatbot/mobina-video.webm"
                               class="full-span"
@@ -436,17 +443,9 @@
                          <button class="prompt">I have a project</button>
                          <button class="prompt">What do you’se do?</button>
                          <button class="prompt">Am i a fit?</button>
-                    </div> -->
-                    <div class="message-container f-c g24 flex">
-                         <div class="message-block user f-c g8">
-                              <span class="who">You</span>
-                              <p>What do you offer.</p>
-                         </div>
-
-                         <div class="message-block mobina f-c g8">
-                              <span class="who">Mobina</span>
-                              <p>Three things, usually at the same time, Product Design interfaces, systems, flows, and usability. Brand & Marketing how a company shows up, launches, and converts.</p>
-                         </div>
+                    </div>
+                    </div>
+                    <div class="message-container f-c g24">
                     </div>
                </div>
                <div class="input-container f-r">
@@ -464,6 +463,7 @@
 
 
           <script src="main.js" defer></script>
+          <script src="/chatbot/chat-widget.js" defer></script>
 
 
           <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
@@ -474,9 +474,10 @@ const orb = document.querySelector('#chatWidgetOrb');
 const innerRing = orb.querySelector('.inner-ring');
 const outerRing = orb.querySelector('.outer-ring');
 
-let isOpen = false;
+let isOpen = container.classList.contains('open');
 let breathingTl = null;
 let transitionTl = null;
+let thinkingTl = null;
 
 /* build dots */
 
@@ -526,6 +527,8 @@ const outerRadius = {
 function killAll() {
      breathingTl?.kill();
      transitionTl?.kill();
+     thinkingTl?.kill();
+     thinkingTl = null;
 
      gsap.killTweensOf([
           innerRing,
@@ -589,7 +592,49 @@ function buildBreathingTl() {
 }
 
 function startBreathing() {
+     if (thinkingTl) return;
      breathingTl = buildBreathingTl();
+}
+
+function startThinkingOrb() {
+     killAll();
+
+     thinkingTl = gsap.timeline({
+          repeat: -1
+     });
+
+     thinkingTl
+          .to(innerRing, {
+               rotation: '+=360',
+               svgOrigin: '20 20',
+               duration: 5.5,
+               ease: 'none'
+          }, 0)
+          .to(outerRing, {
+               rotation: '-=360',
+               svgOrigin: '20 20',
+               duration: 8,
+               ease: 'none'
+          }, 0);
+}
+
+function stopThinkingOrb() {
+     if (!thinkingTl) return;
+
+     thinkingTl.kill();
+     thinkingTl = null;
+
+     gsap.set(innerRing, {
+          rotation: 0,
+          svgOrigin: '20 20'
+     });
+
+     gsap.set(outerRing, {
+          rotation: 0,
+          svgOrigin: '20 20'
+     });
+
+     startBreathing();
 }
 
 function animateDotsOut(circles, stagger) {
@@ -698,6 +743,11 @@ function closeWidget() {
 /* init */
 
 startBreathing();
+
+window.chatbotOrbControls = {
+     startThinkingOrb,
+     stopThinkingOrb
+};
 
 orb.addEventListener('click', () => {
      isOpen ? closeWidget() : openWidget();

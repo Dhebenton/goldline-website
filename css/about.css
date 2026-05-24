@@ -1,0 +1,145 @@
+#about-section {
+	.tag {
+		white-space: nowrap;
+		margin-top: 3px;
+	}
+
+	.about-us-text-wrap {
+		display: grid;
+		grid-template-columns: min-content min-content;
+		column-gap: var(--g28);
+
+		img {
+			grid-column: 1 / 3;
+			width: 100%;
+			filter: blur(4px);
+			opacity: .6;
+			border-radius: 2px;
+			transition-duration: .4s;
+               margin-top: var(--g36);
+		}
+
+		img.revealed {
+			filter: blur(0);
+			opacity: 1;
+		}
+
+		p,
+		span {
+			font-size: 14.5px;
+			font-variation-settings: 'wght' 630;
+			line-height: 1.5;
+			transition-duration: .32s;
+			white-space: nowrap;
+		}
+
+		span {
+			transition: inherit;
+		}
+
+		.reveal-text-dark,
+		.reveal-text-grey {
+			color: #E6E6E6;
+			filter: blur(2px);
+		}
+
+		.reveal-text-dark.revealed {
+			filter: blur(0px);
+			color: var(--t9);
+		}
+
+		.reveal-text-grey.revealed {
+			filter: blur(0px);
+			color: var(--t4);
+		}
+	}
+}
+
+@media (max-width: 1380px) {
+     #about-section {
+          .about-us-text-wrap {
+
+               p,
+               span {
+                    font-size: 13.5px;
+               }
+          }
+     }
+
+     
+     @media (max-width: 1200px) {
+          #about-section {
+               .about-us-text-wrap {
+
+                    p,
+                    span {
+                         font-size: 13px;
+                    }
+               }
+          }
+     } 
+}
+
+
+@media (max-width: 1052px) {
+     #about-section {
+          flex-direction: column;
+          gap: var(--g28);
+
+          .about-us-text-wrap {
+               grid-template-columns: auto auto;
+
+               br {
+                    display: none;
+               }
+
+               p,
+               span {
+                    white-space: wrap;
+               }
+          }
+     }
+
+     @media (max-width: 885px) {
+          #about-section {
+               .about-us-text-wrap {
+                    p {
+                         grid-column: 1 / 3;
+                    }
+
+                    p,span {
+                         font-size: 14px;
+                    }
+
+                    .second {
+                         margin-top: var(--g12);
+                    }
+               }
+          }
+     } 
+
+} 
+
+@media (max-width: 768px) {
+     #about-section {
+          .about-us-text-wrap {
+
+               p,
+               span {
+                    font-size: 13px;
+               }
+          }
+     }
+} 
+
+@media (max-width: 540px) {
+     #about-section {
+          .about-us-text-wrap {
+
+               p,
+               span {
+                    font-size: 12.5px;
+               }
+          }
+     }
+} 

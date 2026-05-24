@@ -340,6 +340,29 @@ h2 {
      gap: var(--g4);
 }
 
+.j-c {
+     justify-content: center;
+}
+
+input {
+     background-color: transparent;
+     outline: none;
+     border: none;
+}
+
+.j-f-e {
+     justify-content: flex-end;
+}
+
+.a-f-e {
+     align-items: flex-end;
+}
+
+.g24 {
+     gap: var(--g24);
+}
+
+
 /* ============================================================
    GLOBAL COMPONENTS — SLIDER INDICATOR
 ============================================================ */
