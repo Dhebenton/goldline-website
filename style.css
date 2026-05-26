@@ -283,8 +283,7 @@ nav {
 #faq-section {
      h2 {
           font-size: 21px;
-          font-variation-settings: 'wght' 670;
-          line-height: 1.5;
+          line-height: 1.7;
           white-space: nowrap;
           margin: var(--g12) 0 var(--g24) 0;
 
@@ -310,6 +309,7 @@ nav {
                padding: var(--g14) 0;
                display: grid;
                grid-template-columns: auto 1fr;
+               margin-left: var(--g8);
                column-gap: var(--g16);
                cursor: pointer;
                align-items: center;
@@ -318,11 +318,12 @@ nav {
                svg {
                     height: 9px;
                     fill: var(--t3);
-                    transform: translateY(-1px);
                }
 
                h3 {
                     color: var(--t6);
+                    padding-top: 1px;
+                    font-variation-settings: 'wght' 620;
                     font-size: 14.5px;
                     line-height: 1.3;
                }
@@ -335,6 +336,7 @@ nav {
                     p {
                          font-variation-settings: 'wght' 530;
                          color: var(--t4);
+                         padding-top: 3px;
                          line-height: 1.5;
                          font-size: 13px;
 
@@ -348,7 +350,8 @@ nav {
                }
 
                svg {
-                    transform: translateY(1px) rotate(45deg);
+                    transform: rotate(45deg);
+                    fill: var(--t9);
                }
           }
      }
@@ -555,42 +558,9 @@ footer.above {
      z-index: 2;
 }
 
-
-/* ============================================================
-   PAGE TRANSITION — FADE OUT
-============================================================ */
-
-body.fade-out {
-     background-color: white;
-
-     footer,
-     nav {
-          filter: blur(5px) !important;
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-          opacity: 0 !important;
-          transform: translateY(10px);
-     }
-
-     section, main, footer {
-          * {
-               transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-               filter: blur(5px);
-               opacity: 0;
-               transform: translateY(10px);
-          }
-     }
-}
-
-
 /* ============================================================
    UTILITIES
 ============================================================ */
-
-.j-c  { justify-content: center; }
-.j-s  { justify-content: start; }
-.j-s-b { justify-content: space-between; }
-.a-c  { align-items: center; }
-.a-s  { align-items: flex-start; }
 
 .g8  { gap: var(--g8); }
 .g12 { gap: var(--g12); }
@@ -610,6 +580,12 @@ body.fade-out {
 .f-r { display: flex; align-items: center; }
 .f-c { display: flex; flex-direction: column; }
 .fs  { width: 100%; height: 100%; left: 0; top: 0; }
+
+.j-c  { justify-content: center; }
+.j-s  { justify-content: start; }
+.j-s-b { justify-content: space-between; }
+.a-c  { align-items: center; }
+.a-s  { align-items: flex-start; }
 
 .tg {
      display: grid;
@@ -795,3 +771,4 @@ h2 {
 .a-e {
      align-items: flex-end;
 }
+

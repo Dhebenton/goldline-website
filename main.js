@@ -14,7 +14,7 @@
         ? 'rgba(0, 0, 0, 0.07)'
         : 'rgba(0, 0, 0, 0.0)';
       nav.style.boxShadow = scrolled
-        ? '0px 1px 3px 0px hsl(0, 0%, 0%, .04)'
+        ? '0px 1px 2px 0px hsl(0, 0%, 0%, .03)'
         : '0px 1px 3px 0px hsl(0, 0%, 0%, .00)';
       wasScrolled = scrolled;
     }
@@ -65,25 +65,6 @@
     initFaq();
   }
 })();
-
-// ============================================================
-//  FADE OUT
-// ============================================================
-
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a');
-  if (!link) return;
-
-  const href = link.getAttribute('href');
-  if (!href || href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-
-  e.preventDefault();
-  document.body.classList.add('fade-out');
-
-  setTimeout(() => {
-    window.location.href = href;
-  }, 500);
-});
 
 // ============================================================
 //  SLIDER
