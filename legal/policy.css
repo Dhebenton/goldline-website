@@ -1,0 +1,23 @@
+#policy {
+     h1 {
+          white-space: nowrap;
+     }
+
+     .p-wrap {
+          width: 720px;
+
+          p {
+               color: var(--t4);
+               font-size: 13.5px;
+               font-variation-settings: 'wght' 620;
+               line-height: 1.6;
+          }
+
+          h2 {
+               font-size: 15px;
+               line-height: 1;
+               font-variation-settings: 'wght' 740;
+               margin-bottom: var(--g4);
+          }
+     }
+}
