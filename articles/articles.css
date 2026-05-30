@@ -328,7 +328,7 @@
                img {
                     grid-row: 2 / 3;
                     grid-column: 1 / 6;
-                    margin: var(--g32) 0;
+                    margin: var(--g28) 0 var(--g36);
                }
           }
 
