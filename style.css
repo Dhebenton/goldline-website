@@ -184,7 +184,7 @@ button,
 
 		.reveal-text-grey.revealed {
 			filter: blur(0px);
-			color: var(--t4);
+			color: var(--t5);
 		}
      }
 }
@@ -211,6 +211,7 @@ button,
 
 :root {
 	--g100: round(calc(100px * var(--gmultiplier)), 1px);
+	--g52: round(calc(52px * var(--gmultiplier)), 1px);
 	--g36: round(calc(36px * var(--gmultiplier)), 1px);
 	--g32: round(calc(32px * var(--gmultiplier)), 1px);
 	--g28: round(calc(28px * var(--gmultiplier)), 1px);
@@ -229,11 +230,20 @@ h2, .h2 {
      line-height: 1.3;
 }
 
+.g52 {
+     gap: var(--g52);
+}
+
+.fc {
+     display: flex;
+     flex-direction: column;
+}
+
 .g32 {
      gap: var(--g32);
 }
 
-.f-r {
+.fr {
      display: flex;
      align-items: center;
 }
