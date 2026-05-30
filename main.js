@@ -142,3 +142,46 @@
     initAboutScroll();
   }
 })();
+
+// ============================================================
+//  FAQ
+// ============================================================
+
+(function () {
+  function initFaq() {
+    const faqs = document.querySelectorAll('.faq');
+    if (!faqs.length) return;
+
+    const isMobile      = window.innerWidth < 1042;
+    const isBelowMobile = window.innerWidth < 540;
+
+    function getP(faq) {
+      const answerWrap = faq.querySelector('.ans');
+      return isBelowMobile
+        ? answerWrap.querySelector('p.be-mo')
+        : answerWrap.querySelector('p.n-mo');
+    }
+
+    function setActive(faq) {
+      faqs.forEach(f => {
+        f.classList.remove('active');
+        f.querySelector('.ans').style.height = '0px';
+      });
+      faq.classList.add('active');
+      const answerWrap = faq.querySelector('.ans');
+      answerWrap.style.height = getP(faq).offsetHeight + 3 + 'px';
+    }
+
+    faqs.forEach(faq => {
+      faq.addEventListener(isMobile ? 'click' : 'mouseenter', () => setActive(faq));
+    });
+
+    setTimeout(() => setActive(faqs[0]), 250);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaq);
+  } else {
+    initFaq();
+  }
+})();
