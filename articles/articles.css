@@ -145,7 +145,7 @@
           h3 {
                font-size: 16px;
                font-variation-settings: 'wght' 670;
-               margin-bottom: var(--g6);
+               margin-bottom: var(--g4);
                line-height: 1.4;
                color: var(--t8);
           }
@@ -334,11 +334,21 @@
 
           article {
                h3 {
-                    font-size: 13px;
+                    font-size: 14px;
                }
 
                p {
                     font-size: 12px;
+               }
+          }
+
+          .dtp {
+               .j {
+                    font-size: 10.5px;
+               }
+
+               p {
+                    font-size: 11.5px;
                }
           }
      }
