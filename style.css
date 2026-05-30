@@ -671,6 +671,15 @@ h2, .h2 {
                font-size: 16.5px;
           }
 
+          .blk {
+               display: flex;
+               align-items: start;
+
+               h2 {
+                    margin-bottom: var(--g20);
+               }
+          }
+
           .faq-wrp {
                .faq {
                     h3 {
