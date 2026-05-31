@@ -434,5 +434,9 @@
 
 
 @media (max-width: 800px) {
-     
+     #chatbot-container.closing,
+     #chatbot-container.open {
+          height: 60vh;
+          width: 70vw;
+     }
 }
