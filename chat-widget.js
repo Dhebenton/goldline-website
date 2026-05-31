@@ -1,196 +1,181 @@
-document.addEventListener('DOMContentLoaded', () => {
-     const chatbotContainer = document.querySelector('#chatbot-container');
+(() => {
 
-     if (!chatbotContainer) {
-          return;
-     }
+     window.addEventListener('chatbot:ready', () => {
 
-     const messageWrap = chatbotContainer.querySelector('.message-wrap');
-     const input = chatbotContainer.querySelector('input[type="text"]');
-     const inputContainer = chatbotContainer.querySelector('.input-container');
-     const promptButtons = Array.from(chatbotContainer.querySelectorAll('.prompt'));
-     const chatHistory = [];
-     let isWaiting = false;
-     let inputBlurTimer = null;
-     let inputBlurSwapTimer = null;
-     let hasSentFirstMessage = false;
+          const container      = document.getElementById('chatbot-container');
+          const messageWrap    = container.querySelector('.message-wrap');
+          const inputContainer = container.querySelector('.input-container');
+          const input          = container.querySelector('input[type="text"]');
+          const promptButtons  = Array.from(container.querySelectorAll('.prompt'));
 
-     if (!messageWrap || !input) {
-          return;
-     }
+          if (!messageWrap || !input) return;
 
-     messageWrap.style.scrollBehavior = 'smooth';
+          const chatHistory = [];
+          let isWaiting     = false;
+          let hasSentFirst  = false;
 
-     function formatTime(date) {
-          const hours = String(date.getHours()).padStart(2, '0');
-          const minutes = String(date.getMinutes()).padStart(2, '0');
+          /* ── scroll ──────────────────────────────────── */
 
-          return `${hours}:${minutes}`;
-     }
+          function scrollToBottom() {
+               messageWrap.scrollTo({ top: messageWrap.scrollHeight, behavior: 'smooth' });
+          }
 
-     function scrollToBottom() {
-          const target = messageWrap.scrollHeight;
-
-          if (typeof messageWrap.scrollTo === 'function') {
-               messageWrap.scrollTo({
-                    top: target,
-                    behavior: 'smooth'
+          function queueScroll() {
+               requestAnimationFrame(() => {
+                    scrollToBottom();
+                    setTimeout(scrollToBottom, 80);
+                    setTimeout(scrollToBottom, 220);
                });
-               return;
           }
 
-          messageWrap.scrollTop = target;
-     }
+          /* ── trap scroll inside widget ───────────────── */
 
-     function queueScrollToBottom() {
-          requestAnimationFrame(() => {
-               scrollToBottom();
+          messageWrap.addEventListener('wheel', event => {
+               const canScroll = messageWrap.scrollHeight > messageWrap.clientHeight;
 
-               setTimeout(scrollToBottom, 80);
-               setTimeout(scrollToBottom, 220);
-          });
-     }
+               if (!canScroll) {
+                    event.preventDefault();
+                    return;
+               }
 
-     function appendMessage(role, content) {
-          const message = document.createElement('div');
-          message.className = role === 'assistant' ? 'msg mob load' : 'msg load';
+               const atTop    = messageWrap.scrollTop <= 0;
+               const atBottom = messageWrap.scrollTop + messageWrap.clientHeight >= messageWrap.scrollHeight - 1;
 
-          const sender = document.createElement('span');
-          sender.className = 'sen';
-          sender.textContent = role === 'assistant' ? 'Mobina' : 'You';
+               if ((event.deltaY < 0 && atTop) || (event.deltaY > 0 && atBottom)) {
+                    event.preventDefault();
+                    return;
+               }
 
-          const separator = document.createElement('div');
-          separator.className = 'sep';
+               event.stopPropagation();
+          }, { passive: false });
 
-          const time = document.createElement('span');
-          time.className = 'time';
-          time.textContent = formatTime(new Date());
+          /* ── messages ────────────────────────────────── */
 
-          const paragraph = document.createElement('p');
-          paragraph.textContent = content;
-
-          message.append(sender, separator, time, paragraph);
-          messageWrap.appendChild(message);
-
-          setTimeout(() => {
-               message.classList.remove('load');
-          }, 50);
-
-          queueScrollToBottom();
-     }
-
-     function pulseInputBlur(onBlurred) {
-          if (!inputContainer) {
-               onBlurred?.();
-               return;
+          function formatTime() {
+               const d = new Date();
+               return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
           }
 
-          clearTimeout(inputBlurTimer);
-          clearTimeout(inputBlurSwapTimer);
-          inputContainer.style.filter = 'blur(3px)';
-          inputContainer.style.transition = 'filter 170ms ease';
+          function appendMessage(role, content) {
+               const msg  = document.createElement('div');
+               msg.className = role === 'assistant' ? 'msg mob load' : 'msg load';
 
-          inputBlurSwapTimer = setTimeout(() => {
-               onBlurred?.();
-          }, 60);
+               const sen  = document.createElement('span');
+               sen.className = 'sen';
+               sen.textContent = role === 'assistant' ? 'Mobina' : 'You';
 
-          inputBlurTimer = setTimeout(() => {
-               inputContainer.style.filter = '';
-          }, 170);
-     }
+               const sep  = document.createElement('div');
+               sep.className = 'sep';
 
-     function delay(ms) {
-          return new Promise(resolve => {
-               setTimeout(resolve, ms);
-          });
-     }
+               const time = document.createElement('span');
+               time.className = 'time';
+               time.textContent = formatTime();
 
-     function startThinking() {
-          pulseInputBlur(() => {
-               input.placeholder = 'Thinking...';
-          });
-          input.disabled = true;
-          window.chatbotOrbControls?.startThinkingOrb?.();
-     }
+               const p    = document.createElement('p');
+               p.textContent = content;
 
-     function stopThinking() {
-          input.disabled = false;
-          window.chatbotOrbControls?.stopThinkingOrb?.();
-          pulseInputBlur(() => {
-               input.placeholder = 'Ask me anything...';
+               msg.append(sen, sep, time, p);
+               messageWrap.appendChild(msg);
+
+               setTimeout(() => msg.classList.remove('load'), 50);
+               queueScroll();
+          }
+
+          /* ── placeholder pulse ───────────────────────── */
+
+          function setPlaceholder(text) {
+               if (!input) { input.placeholder = text; return; }
+
+               input.style.transition = 'filter .19s ease';
+               input.style.filter = 'blur(3px)';
+
+               setTimeout(() => { input.placeholder = text; }, 85);
+               setTimeout(() => {
+               input.style.filter = '';
+               setTimeout(() => { input.style.transition = ''; }, 190);
+               }, 170);
+          }
+
+          /* ── thinking state ──────────────────────────── */
+
+          function startThinking() {
+               input.disabled = true;
+               setPlaceholder('Thinking...');
+               window.chatbotOrbControls?.startThinkingOrb?.();
+          }
+
+          function stopThinking() {
+               input.disabled = false;
+               setPlaceholder('Ask me anything...');
+               window.chatbotOrbControls?.stopThinkingOrb?.();
                input.focus();
+          }
+
+          /* ── transition intro → chat ─────────────────── */
+
+          function transitionToChat() {
+               if (hasSentFirst) return Promise.resolve();
+               hasSentFirst = true;
+               container.classList.add('active');
+               return new Promise(resolve => setTimeout(resolve, 400));
+          }
+
+          /* ── send ────────────────────────────────────── */
+
+          async function handleSubmit(raw) {
+               if (isWaiting) return;
+
+               const message = (typeof raw === 'string' ? raw : input.value).trim();
+               if (!message) return;
+
+               isWaiting    = true;
+               input.value  = '';
+
+               startThinking();
+               await transitionToChat();
+               appendMessage('user', message);
+
+               const history = chatHistory.slice();
+               chatHistory.push({ role: 'user', content: message });
+
+               try {
+                    const res  = await fetch('/api/chat', {
+                         method:  'POST',
+                         headers: { 'Content-Type': 'application/json' },
+                         body:    JSON.stringify({ message, history })
+                    });
+
+                    const data  = await res.json().catch(() => ({}));
+                    const reply = typeof data.reply === 'string' && data.reply.trim()
+                         ? data.reply.trim()
+                         : 'Sorry, something went wrong. Try again in a moment.';
+
+                    chatHistory.push({ role: 'assistant', content: reply });
+                    appendMessage('assistant', reply);
+
+               } catch {
+                    const reply = 'Sorry, something went wrong. Try again in a moment.';
+                    chatHistory.push({ role: 'assistant', content: reply });
+                    appendMessage('assistant', reply);
+
+               } finally {
+                    stopThinking();
+                    isWaiting = false;
+               }
+          }
+
+          /* ── events ──────────────────────────────────── */
+
+          input.addEventListener('keydown', event => {
+               if (event.key !== 'Enter') return;
+               event.preventDefault();
+               handleSubmit();
           });
-     }
 
-     async function sendMessage(promptMessage) {
-          if (isWaiting) {
-               return;
-          }
+          promptButtons.forEach(btn => {
+               btn.addEventListener('click', () => handleSubmit(btn.textContent));
+          });
 
-          const message = typeof promptMessage === 'string'
-               ? promptMessage.trim()
-               : input.value.trim();
-
-          if (!message) {
-               return;
-          }
-
-          isWaiting = true;
-          input.value = '';
-          startThinking();
-
-          if (!hasSentFirstMessage) {
-               hasSentFirstMessage = true;
-               chatbotContainer.classList.add('active');
-               await delay(400);
-          }
-
-          appendMessage('user', message);
-
-          const requestHistory = chatHistory.slice();
-          chatHistory.push({ role: 'user', content: message });
-
-          try {
-               const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {
-                         'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                         message,
-                         history: requestHistory
-                    })
-               });
-
-               const data = await response.json().catch(() => ({}));
-               const reply = typeof data.reply === 'string' && data.reply.trim()
-                    ? data.reply.trim()
-                    : 'Sorry, something went wrong. Try again in a moment.';
-
-               chatHistory.push({ role: 'assistant', content: reply });
-               appendMessage('assistant', reply);
-          } catch (error) {
-               const reply = 'Sorry, something went wrong. Try again in a moment.';
-               chatHistory.push({ role: 'assistant', content: reply });
-               appendMessage('assistant', reply);
-          } finally {
-               stopThinking();
-               isWaiting = false;
-          }
-     }
-
-     input.addEventListener('keydown', event => {
-          if (event.key !== 'Enter') {
-               return;
-          }
-
-          event.preventDefault();
-          sendMessage();
      });
 
-     promptButtons.forEach(button => {
-          button.addEventListener('click', () => {
-               sendMessage(button.textContent);
-          });
-     });
-});
+})();

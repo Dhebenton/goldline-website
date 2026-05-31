@@ -829,6 +829,7 @@ input {
      ============================================================ */
 
      #scroll-sec {
+          height: 190vh;
           h2 {
                font-size: 15px;
                max-width: 330px;
@@ -836,7 +837,7 @@ input {
           }
 
           img {
-               scale: .8 !important;
+               scale: .75 !important;
           }
      }
 
