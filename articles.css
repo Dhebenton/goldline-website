@@ -19,7 +19,7 @@
           display: grid;
           grid-template-columns: 85px 1fr 75px;
           padding: var(--g18) 0;
-          border-bottom: 1px solid #E0E0E0;
+          border-bottom: 1px solid #E6E6E6;
           gap: var(--g40);
           align-items: center;
           
@@ -100,15 +100,24 @@
 
      #archive-section {
 
+          .fr.jsb {
+               flex-wrap: wrap;
+               gap: var(--g20);
+          }
+
           .ar-bl.he {
                display: none;
+          }
+
+          .ar.bl.fir {
+               border-top: 1px solid #E6E6E6;
           }
 
           .ar-bl {
                display: flex;
                flex-direction: column;
                align-items: start;
-               gap: var(--g12);
+               gap: var(--g10);
 
                p {
                     font-size: 10.5px;
