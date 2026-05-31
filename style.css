@@ -37,6 +37,7 @@
 	--g28: round(calc(28px * var(--gmultiplier)), 1px);
 	--g24: round(calc(24px * var(--gmultiplier)), 1px);
 	--g20: round(calc(20px * var(--gmultiplier)), 1px);
+	--g18: round(calc(18px * var(--gmultiplier)), 1px);
 	--g16: round(calc(16px * var(--gmultiplier)), 1px);
 	--g14: round(calc(14px * var(--gmultiplier)), 1px);
 	--g12: round(calc(12px * var(--gmultiplier)), 1px);
@@ -446,6 +447,9 @@ h2, .h2 {
      gap: var(--g28);
 }
 
+.jsb {
+     justify-content: space-between;
+}
 
 /*  */
 
