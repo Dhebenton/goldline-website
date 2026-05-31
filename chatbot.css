@@ -4,6 +4,7 @@
      position: fixed;
      left: var(--g24);
      bottom: var(--g24);
+     z-index: 20;
      transition-duration: .32s;
 
      * {
