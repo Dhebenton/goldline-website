@@ -206,6 +206,53 @@ h2, .h2 {
 }
 
 /* ============================================================
+   SCROLL
+============================================================ */
+
+#scroll-sec {
+     height: 165vh;
+     overflow: visible;
+
+     .blk {
+          position: sticky;
+          top: 50%;
+     }
+
+     h2 {
+          font-size: 20px;
+          max-width: 450px;
+          font-variation-settings: 'wght' 650;
+          line-height: 1.2;
+          text-align: center;
+     }
+
+     h2 span {
+		transition: inherit;
+		transition-duration: .34s !important;
+	}
+
+     .t {
+		transition-duration: .34s !important;
+	}
+
+     img {
+		position: absolute;
+		opacity: 1;
+		width: auto;
+          transition: inherit;
+          transition-duration: .4s;
+		border-radius: 3px;
+	}
+
+	.one   { left: 12%; top: -8%; }
+	.two   { left: 1%;  top: 48%; }
+	.three { left: 13%; bottom: -3%; }
+	.four  { right: 10%; top: -5%; }
+	.five  { right: 0;   top: 50%; }
+	.six   { right: 14%; bottom: -6%; }
+}
+
+/* ============================================================
    ABOUT SECTION
 ============================================================ */
 
@@ -353,6 +400,10 @@ h2, .h2 {
 	--g120: round(calc(120px * var(--gmultiplier)), 1px);
 }
 
+.ac {
+     align-items: center;
+}
+
 .as {
      align-items: flex-start;
 }
@@ -361,6 +412,61 @@ h2, .h2 {
      overflow: hidden;
      position: relative;
      grid-column: 1 / 3;
+}
+
+.g16 {
+     gap: var(--g16);
+}
+
+/*  */
+
+.mra {
+     margin-right: auto;
+}
+
+.g8 {
+     gap: var(--g8);
+}
+
+.message-container {
+     position: relative;
+}
+
+.fs {
+     width: 100%;
+     height: 100%;
+     inset: 0;
+}
+
+.je {
+     justify-content: end;
+}
+
+.g28 {
+     gap: var(--g28);
+}
+
+
+/*  */
+
+.f-s {
+     width: 100%;
+     height: 100%;
+     left: 0;
+     top: 0;
+}
+.flex {
+     flex: 1;
+}
+
+.jc {
+     justify-content: center;
+}
+
+input {
+     border: transparent;
+     background-color: transparent;
+     outline: transparent;
 }
 
 /*  */
@@ -438,6 +544,21 @@ h2, .h2 {
      }
 
      /* ============================================================
+          SCROLL
+     ============================================================ */
+
+     #scroll-sec {
+          h2 {
+               font-size: 18px;
+               max-width: 400px;
+          }
+
+          img {
+               scale: .93 !important;
+          }
+     }
+
+     /* ============================================================
           ABOUT SECTION
      ============================================================ */
 
@@ -500,6 +621,21 @@ h2, .h2 {
      :root {
           --c-h: 7%;
           --c-v: 112px;
+     }
+
+     /* ============================================================
+          SCROLL
+     ============================================================ */
+
+     #scroll-sec {
+          .blk {
+               padding: calc(var(--c-v) * 1.2) 0 !important;
+          }
+
+          h2 {
+               font-size: 17px;
+               max-width: 380px;
+          }
      }
 
      /* ============================================================
@@ -589,6 +725,27 @@ h2, .h2 {
      }
 
      /* ============================================================
+          SCROLL
+     ============================================================ */
+
+     #scroll-sec {
+          h2 {
+               font-size: 16px;
+               max-width: 350px;
+          }
+
+          .four,
+          .six {
+               display: none;
+          }
+
+          .one   { left: 3%; top: 4%; }
+          .two   { left: auto; right: 0%;  top: -12%; }
+          .three { left: 0%; bottom: -1%; }
+          .five  { right: -4%; right: -2%; top: auto; bottom: 9%; }
+     }
+
+     /* ============================================================
           ABOUT SECTION
      ============================================================ */
 
@@ -665,6 +822,21 @@ h2, .h2 {
 
      .n-mo {
           display: none;
+     }
+
+     /* ============================================================
+          SCROLL
+     ============================================================ */
+
+     #scroll-sec {
+          h2 {
+               font-size: 14px;
+               max-width: 310px;
+          }
+
+          img {
+               scale: .8 !important;
+          }
      }
 
      /* ============================================================
