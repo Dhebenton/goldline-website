@@ -115,6 +115,7 @@
 
           .ar-bl {
                display: flex;
+               padding: var(--g20) 0;
                flex-direction: column;
                align-items: start;
                gap: var(--g10);

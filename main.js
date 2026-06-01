@@ -245,6 +245,47 @@
 })();
 
 // ============================================================
+//  PORTFOLIO — intersection reveal
+// ============================================================
+
+(function () {
+  function initPortfolio() {
+    const cards = document.querySelectorAll('.crd');
+    if (!cards.length) return;
+
+    const isMobile = window.innerWidth < 800;
+
+    const defaultObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('outview');
+          defaultObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.7 });
+
+    const twoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('outview');
+          twoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 1, rootMargin: isMobile ? '0px' : '0px 0px -80px 0px' });
+
+    cards.forEach(card => {
+      (card.classList.contains('two') ? twoObserver : defaultObserver).observe(card);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolio);
+  } else {
+    initPortfolio();
+  }
+})();
+
+// ============================================================
 //  FAQ
 // ============================================================
 
