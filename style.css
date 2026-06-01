@@ -374,6 +374,7 @@ h2, .h2 {
           .crd.outview {
                p, .j {
                     transform: translateX(-5px);
+                    opacity: 0;
                }
 
                .cv {
