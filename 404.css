@@ -1,9 +1,10 @@
 #lost {
      height: 100svh;
      h6 {
-          font-size: 17px;
+          font-size: 18px;
           font-variation-settings: 'wght' 660;
           margin-bottom: var(--g8);
+          text-align: center;
           line-height: 1.1;
      }
 
@@ -12,6 +13,8 @@
           margin-bottom: var(--g24);
           color: var(--t5);
           font-variation-settings: 'wght' 580;
+          line-height: 1.4;
+          text-align: center;
      }
 }
 
