@@ -1849,6 +1849,7 @@ footer.above {
 
 @media (min-width: 1055px) {
      nav {
+          .menu-btn,
           .cases-grid,
           .swrap {
                display: none !important;
