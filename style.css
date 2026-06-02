@@ -1986,6 +1986,11 @@ footer.above {
     }
   }
 
+
+  .pulse {
+     display: none !important;
+  }
+
   /* ARTICLE DROPDOWN */
 
   .art-d {
@@ -2369,6 +2374,7 @@ footer.above {
           .social-wrap {
             grid-column: 3 / 5;
           }
+     }
      
      
 }
