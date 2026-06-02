@@ -1,45 +1,3 @@
-(function () {
-  const nav = document.querySelector('nav');
-  let lastY = window.scrollY;
-  let wasScrolled = null;
-
-  window.addEventListener('scroll', () => {
-    const currentY = window.scrollY;
-    const scrolled = currentY > 0 || window.innerWidth < 530;
-
-    nav.style.transform = currentY > lastY ? 'translateY(-100%)' : 'translateY(0)';
-
-    if (scrolled !== wasScrolled) {
-      nav.style.borderColor = scrolled
-        ? 'rgba(0, 0, 0, 0.07)'
-        : 'rgba(0, 0, 0, 0.0)';
-      nav.style.boxShadow = scrolled
-        ? '0px 1px 2px 0px hsl(0, 0%, 0%, .03)'
-        : '0px 1px 3px 0px hsl(0, 0%, 0%, .00)';
-      wasScrolled = scrolled;
-    }
-
-    lastY = currentY;
-  }, { passive: true });
-})();
-
-
-// ============================================================
-//  DROPDOWN
-// ============================================================
-
-document.addEventListener('DOMContentLoaded', () => {
-  const triggers = [
-    document.getElementById('toggle'),
-    ...document.querySelectorAll('nav .dropdown')
-  ].filter(Boolean);
-
-  triggers.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('dr-open'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('dr-open'));
-  });
-});
-
 // ============================================================
 //  PHILOSOPHY SCROLL
 // ============================================================
@@ -58,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tag.style.opacity = '0';
     tag.style.filter  = 'blur(5px)';
 
-    const block = philSection.querySelector('.blck');
+    const block = philSection.querySelector('.blk');
     if (block) block.style.transform = 'translateY(0%)';
 
     const isPhilMobile = window.innerWidth < 1052;
@@ -149,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function initAboutScroll() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    const paras = document.querySelectorAll('#about-sec .autw p');
+    const paras = document.querySelectorAll('#ab-sec .autw p');
     if (!paras.length) return;
 
     paras.forEach(p => {
@@ -218,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    const aboutSection = document.querySelector('#about-sec');
+    const aboutSection = document.querySelector('#ab-sec');
     if (!aboutSection) return;
 
     const img      = aboutSection.querySelector('.autw img');
@@ -292,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (function () {
   function initPortfolio() {
-    const cards = document.querySelectorAll('.wo-ca');
+    const cards = document.querySelectorAll('.crd');
     if (!cards.length) return;
 
     const isMobile = window.innerWidth < 800;
@@ -340,19 +298,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const isBelowMobile = window.innerWidth < 540;
 
     function getP(faq) {
-      const answerWrap = faq.querySelector('.a-w');
+      const answerWrap = faq.querySelector('.ans');
       return isBelowMobile
-        ? answerWrap.querySelector('p.mob-below')
-        : answerWrap.querySelector('p.mob-no');
+        ? answerWrap.querySelector('p.be-mo')
+        : answerWrap.querySelector('p.n-mo');
     }
 
     function setActive(faq) {
       faqs.forEach(f => {
         f.classList.remove('active');
-        f.querySelector('.a-w').style.height = '0px';
+        f.querySelector('.ans').style.height = '0px';
       });
       faq.classList.add('active');
-      const answerWrap = faq.querySelector('.a-w');
+      const answerWrap = faq.querySelector('.ans');
       answerWrap.style.height = getP(faq).offsetHeight + 3 + 'px';
     }
 
@@ -368,278 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     initFaq();
   }
-})();
-
-// ============================================================
-//  SLIDER
-// ============================================================
-
-(function () {
-  const sliders = [];
-  let activeSlider = null;
-
-  function initSlider(track, indicatorEl, options = {}) {
-    const AUTOPLAY_MS = options.autoplay ?? 3000;
-    const THRESHOLD   = options.threshold ?? 0.7;
-
-    const items = Array.from(track.children);
-    const N     = items.length;
-
-    let offset         = 0;
-    let current        = 0;
-    let dragStartIndex = 0;
-    let dragging       = false;
-    let startX         = 0;
-    let startOff       = 0;
-    let lastX          = 0;
-    let lastT          = 0;
-    let velX           = 0;
-    let rafId          = null;
-    let autoTimer      = null;
-
-    let cachedOffsets   = [];
-    let cachedWidths    = [];
-    let cachedMaxOffset = 0;
-
-    function cacheLayout() {
-      cachedOffsets   = items.map(el => el.offsetLeft);
-      cachedWidths    = items.map(el => el.offsetWidth);
-      cachedMaxOffset = Math.max(0, cachedOffsets[N - 1]);
-    }
-
-    function applyOffset(x, animate) {
-      offset = Math.max(0, Math.min(x, cachedMaxOffset));
-      track.classList.toggle('is-snapping', animate);
-      track.style.transform = `translateX(${-offset}px)`;
-      updateVisibility();
-    }
-
-    function snapTo(index, animate = true) {
-      current = Math.max(0, Math.min(index, N - 1));
-      applyOffset(cachedOffsets[current], animate);
-      updateDots();
-    }
-
-    function nearestIndex() {
-      let best = 0, bestDist = Infinity;
-      cachedOffsets.forEach((left, i) => {
-        const d = Math.abs(left - offset);
-        if (d < bestDist) { bestDist = d; best = i; }
-      });
-      return best;
-    }
-
-    function snapToNearest() { snapTo(nearestIndex(), true); }
-
-    // Dots
-    if (indicatorEl) {
-      indicatorEl.innerHTML = '';
-      items.forEach((_, i) => {
-        const pip = document.createElement('div');
-        pip.addEventListener('click', () => { resetAutoplay(); snapTo(i); });
-        indicatorEl.appendChild(pip);
-      });
-    }
-
-    function updateDots() {
-      if (!indicatorEl) return;
-      Array.from(indicatorEl.children).forEach((pip, i) => {
-        const wasActive = pip.classList.contains('active');
-        pip.classList.toggle('past', i < current);
-        if (i === current && !wasActive) {
-          pip.classList.remove('active');
-          void pip.offsetWidth;
-          pip.classList.add('active');
-        } else if (i !== current) {
-          pip.classList.remove('active');
-        }
-      });
-    }
-
-    function updateDotsFromOffset() {
-      const n = nearestIndex();
-      if (n !== current) { current = n; updateDots(); }
-    }
-
-    // Autoplay
-    function startAutoplay() {
-      clearTimeout(autoTimer);
-      const next = current >= N - 1 ? 0 : current + 1;
-      autoTimer = setTimeout(() => { snapTo(next); startAutoplay(); }, AUTOPLAY_MS);
-    }
-
-    function resetAutoplay() { clearTimeout(autoTimer); startAutoplay(); }
-
-    // Pause on hover
-    track.addEventListener('mouseenter', () => {
-      clearTimeout(autoTimer);
-      if (indicatorEl) indicatorEl.classList.add('is-paused');
-    });
-    track.addEventListener('mouseleave', () => {
-      if (indicatorEl) indicatorEl.classList.remove('is-paused');
-      if (!dragging) startAutoplay();
-    });
-
-    // Mouse drag
-    track.addEventListener('mousedown', e => {
-      if (e.button !== 0) return;
-      cancelAnimationFrame(rafId);
-      clearTimeout(autoTimer);
-      track.classList.remove('is-snapping');
-      track.classList.add('is-dragging');
-      document.documentElement.style.cursor = 'grabbing';
-      document.body.style.userSelect        = 'none';
-      document.body.style.pointerEvents     = 'none';
-      track.style.pointerEvents             = 'auto';
-      dragging       = true;
-      dragStartIndex = current;
-      startX = lastX = e.clientX;
-      startOff = offset;
-      lastT = performance.now();
-      velX  = 0;
-      e.preventDefault();
-    });
-
-    window.addEventListener('mousemove', e => {
-      if (!dragging) return;
-      const now = performance.now();
-      velX  = (e.clientX - lastX) / (now - lastT + 1);
-      lastX = e.clientX; lastT = now;
-      applyOffset(startOff - (e.clientX - startX), false);
-      updateDotsFromOffset();
-    });
-
-    window.addEventListener('mouseup', () => {
-      if (!dragging) return;
-      dragging = false;
-      track.classList.remove('is-dragging');
-      document.documentElement.style.cursor = '';
-      document.body.style.userSelect        = '';
-      document.body.style.pointerEvents     = '';
-      track.style.pointerEvents             = '';
-      momentum();
-    });
-
-    // Touch drag
-    track.addEventListener('touchstart', e => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(autoTimer);
-      track.classList.remove('is-snapping');
-      const t = e.touches[0];
-      dragging       = true;
-      dragStartIndex = current;
-      startX = lastX = t.clientX;
-      startOff = offset;
-      lastT = performance.now();
-      velX  = 0;
-    }, { passive: true });
-
-    track.addEventListener('touchmove', e => {
-      if (!dragging) return;
-      e.preventDefault();
-      const t = e.touches[0], now = performance.now();
-      velX  = (t.clientX - lastX) / (now - lastT + 1);
-      lastX = t.clientX; lastT = now;
-      applyOffset(startOff - (t.clientX - startX), false);
-      updateDotsFromOffset();
-    }, { passive: false });
-
-    track.addEventListener('touchend', () => { dragging = false; momentum(); });
-
-    // Wheel
-    track.addEventListener('wheel', e => {
-      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
-      e.preventDefault();
-      cancelAnimationFrame(rafId);
-      clearTimeout(autoTimer);
-      track.classList.remove('is-snapping');
-      applyOffset(offset + e.deltaX, false);
-      updateDotsFromOffset();
-      clearTimeout(track._wheelTimer);
-      track._wheelTimer = setTimeout(() => { snapToNearest(); resetAutoplay(); }, 120);
-    }, { passive: false });
-
-    // Keyboard
-    const sliderRef = { track, snapTo, resetAutoplay, getCurrent: () => current };
-    sliders.push(sliderRef);
-
-    new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) activeSlider = sliderRef; });
-    }, { threshold: 0.7 }).observe(track);
-
-    // Momentum
-    function momentum() {
-      const isMobile  = window.innerWidth < 800;
-      const FLICK_VEL = isMobile ? 0.5 : 0.4;
-      const MOM_MULT  = isMobile ? 6 : 18;
-      const snapIndex = isMobile ? dragStartIndex : current;
-
-      if (Math.abs(velX) > FLICK_VEL) {
-        snapTo(Math.max(0, Math.min(velX < 0 ? snapIndex + 1 : snapIndex - 1, N - 1)));
-        resetAutoplay();
-        return;
-      }
-      let vel = -velX * MOM_MULT;
-      function step() {
-        if (Math.abs(vel) < 0.5 || offset <= 0 || offset >= cachedMaxOffset) {
-          snapToNearest(); resetAutoplay(); return;
-        }
-        vel *= 0.94;
-        applyOffset(offset + vel, false);
-        updateDotsFromOffset();
-        rafId = requestAnimationFrame(step);
-      }
-      rafId = requestAnimationFrame(step);
-    }
-
-    track.addEventListener('transitionend', () => {
-      track.classList.remove('is-snapping');
-      updateVisibility();
-    });
-
-    function updateVisibility() {
-      if (window.innerWidth < 800) return;
-      items.forEach((el, i) => {
-        const isPast = (cachedOffsets[i] + cachedWidths[i]) <= offset + 8;
-        el.classList.toggle('is-past', isPast);
-        el.querySelectorAll('.cd, .blog-card-wrap').forEach(c => c.classList.toggle('is-past', isPast));
-      });
-    }
-
-    window.addEventListener('resize', () => { cacheLayout(); snapTo(current, false); }, { passive: true });
-
-    cacheLayout();
-    applyOffset(0, false);
-    updateDots();
-    updateVisibility();
-
-    new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) { startAutoplay(); } });
-    }, { threshold: THRESHOLD }).observe(track);
-  }
-
-  document.addEventListener('keydown', e => {
-    if (!activeSlider) return;
-    if (e.key === 'ArrowRight') { activeSlider.resetAutoplay(); activeSlider.snapTo(activeSlider.getCurrent() + 1); }
-    if (e.key === 'ArrowLeft')  { activeSlider.resetAutoplay(); activeSlider.snapTo(activeSlider.getCurrent() - 1); }
-  });
-
-  function guardLinks(track) {
-    let startX = 0, startY = 0;
-    track.addEventListener('pointerdown', e => { startX = e.clientX; startY = e.clientY; }, { passive: true });
-    track.addEventListener('click', e => {
-      if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) e.preventDefault();
-    }, true);
-  }
-
-  window.addEventListener('load', () => {
-    const principlesTrack     = document.getElementById('sliderTrack');
-    const principlesIndicator = document.getElementById('indicator');
-    if (principlesTrack) { initSlider(principlesTrack, principlesIndicator); guardLinks(principlesTrack); }
-
-    const blogSection   = document.getElementById('blog-section');
-    const blogTrack     = document.getElementById('blogTrack');
-    const blogIndicator = blogSection?.querySelector('.slider-indicator');
-    if (blogTrack) { initSlider(blogTrack, blogIndicator, { autoplay: 4000 }); guardLinks(blogTrack); }
-  });
 })();
