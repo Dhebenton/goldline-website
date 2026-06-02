@@ -1978,7 +1978,7 @@ footer.above {
           opacity: 0;
           transition: opacity 0.25s ease;
         }
-      }
+      
 
       .pulse {
         display: none;
