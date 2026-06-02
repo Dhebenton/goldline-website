@@ -1,0 +1,35 @@
+#lost {
+     height: 100svh;
+     h6 {
+          font-size: 17px;
+          font-variation-settings: 'wght' 660;
+          margin-bottom: var(--g8);
+          line-height: 1.1;
+     }
+
+     p {
+          font-size: 13.5px;
+          margin-bottom: var(--g24);
+          color: var(--t5);
+          font-variation-settings: 'wght' 580;
+     }
+}
+
+
+@media (max-width: 1054px) {
+}
+
+@media (max-width: 860px) {
+     #lost {
+          h6 {
+               font-size: 15px;
+          }
+
+          p {
+               font-size: 12.5px;
+          }
+     }
+}
+
+@media (max-width: 580px) {
+}

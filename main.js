@@ -871,7 +871,7 @@ function easeInOut(t) {
 }
 
 let raf = null;
-let progress = 0; // 0 = closed, 1 = open
+let progress = 0;
 
 function animate(toOpen) {
   cancelAnimationFrame(raf);

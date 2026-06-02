@@ -1108,7 +1108,7 @@ section {
                     color: #808080;
                }
 
-               button {
+               a {
                     font-size: 11px;
                     padding: 8px 9px 7px 9px;
                     border-radius: 2px;
@@ -1118,7 +1118,7 @@ section {
                     color: var(--t9);
                }
 
-               button:hover {
+               a:hover {
                     background-color: #F2F2F2;
                }
           }
@@ -1142,12 +1142,12 @@ section {
                     color: #6E6E6E;
                }
 
-               button {
+               a {
                     background-color: #1A1A1A;
                     color: white !important;
                }
 
-               button:hover {
+               a:hover {
                     background-color: #292929;
                }
           }
@@ -1740,7 +1740,7 @@ footer.above {
                          font-size: 16px;
                     }
 
-                    button {
+                    a {
                          font-size: 10.5px;
                     }
                }
@@ -2737,7 +2737,7 @@ footer.above {
                          font-size: 13.5px;
                     }
 
-                    button {
+                    a {
                          font-size: 10px;
                          padding: 7px 8px 6px 8px;
                     }
