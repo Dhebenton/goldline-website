@@ -691,7 +691,7 @@ artD.addEventListener('mouseleave', close);
       const answerWrap = faq.querySelector('.ans');
       return isBelowMobile
         ? answerWrap.querySelector('p.be-mo')
-        : answerWrap.querySelector('p.n-mo');
+        : answerWrap.querySelector('p.no-mo');
     }
 
     function setActive(faq) {
