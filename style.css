@@ -1847,6 +1847,15 @@ footer.above {
      display: none;
 }
 
+@media (min-width: 1055px) {
+     nav {
+          .cases-grid,
+          .swrap {
+               display: none !important;
+          }
+     }
+}
+
 @media (max-width: 1054px) {
   :root {
     --ch: 7%;
