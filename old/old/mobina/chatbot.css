@@ -195,7 +195,7 @@
           }
 
           .gradient {
-               background: linear-gradient(180deg, #181818 0%, rgba(24, 24, 24, 0%) 10%, rgba(24, 24, 24, 0%) 80%, #181818 92%);
+               background: linear-gradient(180deg, c#181818 0%, rgba(24, 24, 24, 0%) 10%, rgba(24, 24, 24, 0%) 80%, #181818 92%);
                position: absolute;
                right: -1px;
                bottom: -2px;
