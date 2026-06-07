@@ -11,6 +11,23 @@
 }
 
 @font-face {
+	font-family: 'Suisse';
+     src: url('/assets/public/fonts/SuisseIntl-Semibold-2.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Suissem';
+     src: url('/assets/public/fonts/try2.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+@font-face {
 	font-family: 'Geist';
 	src: url('assets/public/fonts/Geist.woff2') format('woff2');
 	font-weight: 100 900;
@@ -40,6 +57,27 @@ body {
 /* ============================================================
    RESET & BASE
 ============================================================ */
+
+h2 {
+     font-family: 'Suisse';
+     font-weight: 600;
+     font-size: 20px;
+}
+
+h3 {
+     font-family: 'Suissem';
+     letter-spacing: -.01em;
+     font-weight: 600;
+     font-size: 20px;
+}
+
+.test {
+     padding: 20vw;
+}
+
+.wab {
+     -webkit-text-stroke: .015em currentColor;
+}
 
 *,
 *::before,
